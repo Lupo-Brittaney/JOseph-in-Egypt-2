@@ -31,6 +31,13 @@ public class JosephInEgypt2 {
         //System.out.println(playerInfo);
         
         runBrittCases();
+        runMattCases();
+        
+        
+        
+        
+    }
+    private static void runMattCases(){
         
         
         
