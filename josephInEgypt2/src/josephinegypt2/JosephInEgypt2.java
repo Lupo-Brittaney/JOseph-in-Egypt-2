@@ -32,11 +32,17 @@ public class JosephInEgypt2 {
         
         runBrittCases();
         runMattCases();
+        runChandlerCases();
         
         
         
         
     }
+    private static void runChandlerCases(){
+        
+        
+    }    
+
     private static void runMattCases(){
         
         
