@@ -11,16 +11,27 @@ import byui.cit260.josephInEgypt2.model.Location;
 import byui.cit260.josephInEgypt2.model.Map;
 import byui.cit260.josephInEgypt2.model.Player;
 import byui.cit260.josephInEgypt2.model.Pyramid;
+import byui.cit260.josephInEgypt2.view.StartProgramView;
 
 /**
  *
  * @author Britt
  */
 public class JosephInEgypt2 {
+    
+    private static Game currentGame = null;
+    private static Player player = null;
+    
+    public static void main(String[] args){
+        // create StartProgramView and start the program
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.startProgram();
+        
+    
 
     /**
      * @param args the command line arguments
-     */
+     
     public static void main(String[] args) {
        // Player playerOne= new Player();
         
@@ -32,16 +43,13 @@ public class JosephInEgypt2 {
         
         runBrittCases();
         runMattCases();
-        runChandlerCases();
+        
         
         
         
         
     }
-    private static void runChandlerCases(){
-        
-        
-    }    
+      
 
     private static void runMattCases(){
         
@@ -95,9 +103,27 @@ public class JosephInEgypt2 {
         
         String locationInfo= locationOne.toString();
         System.out.println(locationInfo);
-        
+        */
+    
               
         
     }
+
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(Game currentGame) {
+        JosephInEgypt2.currentGame = currentGame;
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static void setPlayer(Player player) {
+        JosephInEgypt2.player = player;
+    }
+    
     
 }
