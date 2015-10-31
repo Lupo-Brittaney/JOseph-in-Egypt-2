@@ -5,10 +5,16 @@
  */
 package byui.cit260.josephInEgypt2.control;
 
+import byui.cit260.josephInEgypt2.model.Player;
+
 /**
  *
  * @author Matt PC
  */
 public class GameControl {
+
+    public static void createNewGame(Player player) {
+        System.out.println("\n*** createNewGame stub function called ***");
+    }
     
 }
