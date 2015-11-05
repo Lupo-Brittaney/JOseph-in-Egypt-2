@@ -20,7 +20,8 @@ public class MainMenuView {
             + "\n----------------------------------------------"
             + "\n| Main Menu                                  |"
             + "\n----------------------------------------------"
-            + "\nG - Start game"
+            + "\nN - Start new game"
+            + "\nG - Start existing game"
             + "\nH - Get help on how to play the game"
             + "\nS - Save game"
             + "\nE - Exit"
@@ -54,8 +55,13 @@ public class MainMenuView {
             userInput= keyboard.nextLine();
             userInput = userInput.trim();
             
-            //if the name is invalis (less than two characters in length)
+            //if the name is invalis (more than  characters in length)
             if (userInput.length() > 1){
+                System.out.println("Invalid selection");
+                continue; //  and repeat again
+            }
+            ////if the name is invalis (less than two characters in length)
+            if (userInput.length() < 1){
                 System.out.println("Invalid selection");
                 continue; //  and repeat again
             }
