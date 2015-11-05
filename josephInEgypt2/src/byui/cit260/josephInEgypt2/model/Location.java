@@ -19,6 +19,12 @@ public class Location implements Serializable{
     private String itemStored;
     private String description;
     private String buildTools;
+    private double woodAvailable;
+    private double grainAvailable;
+    private double legumeAvailable;
+    private double honeyAvailable;
+    
+    
 
     public Location() {
     }
@@ -87,6 +93,40 @@ public class Location implements Serializable{
     public void setBuildTools(String buildTools) {
         this.buildTools = buildTools;
     }
+
+    public double getWoodAvailable() {
+        return woodAvailable;
+    }
+
+    public void setWoodAvailable(double woodAvailable) {
+        this.woodAvailable = woodAvailable;
+    }
+
+    public double getGrainAvailable() {
+        return grainAvailable;
+    }
+
+    public void setGrainAvailable(double grainAvailable) {
+        this.grainAvailable = grainAvailable;
+    }
+
+    public double getLegumeAvailable() {
+        return legumeAvailable;
+    }
+
+    public void setLegumeAvailable(double legumeAvailable) {
+        this.legumeAvailable = legumeAvailable;
+    }
+
+    public double getHoneyAvailable() {
+        return honeyAvailable;
+    }
+
+    public void setHoneyAvailable(double honeyAvailable) {
+        this.honeyAvailable = honeyAvailable;
+    }
+
+   
 
     @Override
     public int hashCode() {

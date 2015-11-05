@@ -14,7 +14,7 @@ public class ManufactureControl {
          if (desiredBarrels >10 || desiredBarrels <1) { //desired barrels out of range
 	return -1;
         }
-	if (woodStored <2){ //not a vaild number of woodStored
+	if (woodStored < 2){ //not a vaild number of woodStored
 	return -1;
         }
 	double woodNeeded= desiredBarrels *2;

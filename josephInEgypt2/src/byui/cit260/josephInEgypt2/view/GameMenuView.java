@@ -22,7 +22,7 @@ public class GameMenuView {
             + "\nC - collect wood"
             + "\nL - Load barrels"
             + "\nU - Unload barrels"
-            + "\nV - Display View Menu"
+            + "\n V - Display View Menu"
             + "\nQ - Quit"
             + "\n----------------------------------------------";
 
@@ -57,17 +57,11 @@ public class GameMenuView {
                 System.out.println("Invalid selection");
                 continue; //  and repeat again
             }
-             //if the selection is invalid (less than one character in length)
-            if (userInput.length() < 1){
-                System.out.println("Invalid selection");
-                continue; //  and repeat again
-            }
             break; //out of the repitition
             
         }
         return userInput; // return the name
     }
-    
 
     private void doAction(char choice) {
         
@@ -76,7 +70,7 @@ public class GameMenuView {
                 this.displayMoveMenu();
                 break;
             case 'B': // construct barells
-                this.displayConstructMenu();
+                this.displayContstructMenu();
                 break;
             case 'H': // harvest
                 this.displayHarvestMenu();
@@ -107,7 +101,7 @@ public class GameMenuView {
         moveMenu.displayMoveMenu();
     }
 
-    private void displayConstructMenu() {
+    private void displayContstructMenu() {
         // display the construct barrel view
         ConstructMenuView constructMenu = new ConstructMenuView();
         constructMenu.displayConstructMenu();
@@ -126,23 +120,23 @@ public class GameMenuView {
     }
 
     private void displayLoadMenu() {
-        // display the load menu to load barrels to cart
-        LoadMenuView loadMenu = new LoadMenuView();
-        loadMenu.displayLoadMenu();
+        // display the load menu to load barrels
+        HelpMenuView helpMenu = new HelpMenuView();
+        helpMenu.displayHelpMenu();
     }
 
     private void displayUnloadMenu() {
-        // display the un load menu to unload items from cart
-        UnloadMenuView unloadMenu = new UnloadMenuView();
-        unloadMenu.displayUnloadMenu();
+        // display the help menu
+        HelpMenuView helpMenu = new HelpMenuView();
+        helpMenu.displayHelpMenu();
     }
 
     private void displayViewMenu() {
-        // display the view menu
-        ViewMenuView viewMenu = new ViewMenuView();
-        viewMenu.displayViewMenu();
+        // display the help menu
+        HelpMenuView helpMenu = new HelpMenuView();
+        helpMenu.displayHelpMenu();
     }
 
-  
+
     
 }

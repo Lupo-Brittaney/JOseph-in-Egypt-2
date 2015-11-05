@@ -15,6 +15,7 @@ public class Player implements Serializable{
     // class instance variables
     private String name;
     private double livesSaved;
+    private String location;
 
     public Player() {
     }
