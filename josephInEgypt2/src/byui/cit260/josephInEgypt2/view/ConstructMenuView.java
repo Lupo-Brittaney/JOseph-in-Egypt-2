@@ -15,23 +15,7 @@ import java.util.Scanner;
  */
 public class ConstructMenuView {
     
-   /* public ConstructMenuView(){
-        
-    }
-    public void constructMenu(){
-    // Display the banner screen
-    this.displayBanner();
-    //Get the players name
-    String noBarrels = this.getNoBarrels();
-    //call manufacture function to calculate
-    ;
-    //DISPLAY barrels created
-    this.displayBarrelsCreated();
-    //DISPLAY the main menu  
-    MainMenuView mainMenu = new MainMenuView();
-    mainMenu.displayMenu();
-    }*/
-    
+    //create menu for view
     private final String MENU = "\n" 
             +"\n----------------------------------------------"
             + "\n| Contruct Barrels                                  |"
@@ -41,6 +25,7 @@ public class ConstructMenuView {
             + "\nN - To enter number of barrels"
             + "\nE - Exit"
             + "\n----------------------------------------------";
+    
     
     void displayConstructMenu() {
         char selection = ' ';
@@ -55,9 +40,9 @@ public class ConstructMenuView {
          
      } while (selection != 'E'); // a selection is not ""
     }
-
+       //get menu choice from user
     private String getInput() {
-        boolean valid = false; // indicates if the name has been received
+        boolean valid = false; // indicates if the input has been received
         String userInput = null;
         Scanner keyboard = new Scanner(System.in); // keyboard input stream
         
@@ -65,11 +50,11 @@ public class ConstructMenuView {
             //prompt for the choice
             System.out.println("Enter choice");
             
-            //get the name from the keyboard and trimm of the blanks
+            //get the input from the keyboard and trimm of the blanks
             userInput= keyboard.nextLine();
             userInput = userInput.trim();
             
-            //if the name is invalis (greater than two characters in length)
+            //if the input is invalid (greater than two characters in length)
             if (userInput.length() > 2){
                 System.out.println("Invalid selection");
                 continue; //  and repeat again
@@ -79,7 +64,8 @@ public class ConstructMenuView {
         }
         return userInput; // return the name
     }
-
+    
+    //do the action from the choice
     private void doAction(char choice) {
         
         switch (choice) {
@@ -93,13 +79,16 @@ public class ConstructMenuView {
                 break;      
         }
     }
-
+    //action called when N is selected
     private void barrelNumber() {
         
         
         double woodAvailable = 10; //later will have to get this from inventory
+        //get brrels desired from user
         double noBarrels = this.getBarrelNumber();
+        //use manufactureControl to calculate if barrels can be built
         double remainingWood = this.calcBarrels(woodAvailable, noBarrels);
+        //display message
         if (remainingWood >= 0 ){
             System.out.println("You can build " + noBarrels +" barrels. "
                     + "Barrels built.");
@@ -112,6 +101,7 @@ public class ConstructMenuView {
                     
         
     }    
+    //get the barrel number from the user
     private double getBarrelNumber(){    
         boolean valid = false;
         double enteredValue = 0;
@@ -130,7 +120,7 @@ public class ConstructMenuView {
             }
         return enteredValue;
         }
-
+        //call manufactureControl to perform calculations
     private double calcBarrels(double woodAvailable, double noBarrels) {
         double woodStored= woodAvailable;
         double desiredBarrels= noBarrels;
@@ -148,40 +138,4 @@ public class ConstructMenuView {
 
 
 
-
-/*
-   private int getNoBarrels() {
-        boolean valid = false; // indicates if the name has been received
-        String noBarrels = null;
-        Scanner keyboard = new Scanner(System.in); // keyboard input stream
-        
-        while(!valid) { //while a valid name has not been retrieved
-            //prompt for the player's name
-            System.out.println("Enter the number of barrels below");
-            
-            //get the name from the keyboard and trimm of the blanks
-            noBarrels= keyboard.nextLine();
-            noBarrels = noBarrels.trim();
-            
-            //if the name is invalid (less than two characters in length)
-            if (noBarrels.length() < 2){
-                System.out.println("Invalid number");
-                continue; //  and repeat again
-            }
-            break; //out of the repitition
-            
-        }
-        int desiredBarrels = Integer.parseInt(noBarrels);
-        return desiredBarrels; // return the number
-    
-    
-    }
-   //create test location for equation
-   Location testLocation = new Location();
-   //assign values to testLocation
-   testLocation.woodAvailable = 10;
-   
-   
-   */
-    
 
