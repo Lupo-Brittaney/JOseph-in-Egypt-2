@@ -22,7 +22,7 @@ public class GameMenuView {
             + "\nC - collect wood"
             + "\nL - Load barrels"
             + "\nU - Unload barrels"
-            + "\n V - Display View Menu"
+            + "\nV - Display View Menu"
             + "\nQ - Quit"
             + "\n----------------------------------------------";
 
