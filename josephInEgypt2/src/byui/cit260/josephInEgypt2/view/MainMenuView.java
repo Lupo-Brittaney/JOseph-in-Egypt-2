@@ -14,9 +14,10 @@ import josephinegypt2.JosephInEgypt2;
  *
  * @author Britt
  */
-public class MainMenuView {
+public class MainMenuView extends View {
     
-    private final String MENU = "\n"
+    public MainMenuView() {
+        super("\n"
             + "\n----------------------------------------------"
             + "\n| Main Menu                                  |"
             + "\n----------------------------------------------"
@@ -25,54 +26,16 @@ public class MainMenuView {
             + "\nH - Get help on how to play the game"
             + "\nS - Save game"
             + "\nE - Exit"
-            + "\n----------------------------------------------";
+            + "\n----------------------------------------------");
+    }
     
-    void displayMenu() {
-     char selection = ' ';
-     do{
-         System.out.println(MENU); // display the main menu
-         
-         String input = this.getInput(); // GET the user’s selection
-         selection = input.charAt(0); // get first character of string
-         
-         this.doAction(selection); // do action based on selection
-         
-     } while (selection != 'E'); // a selection is not "Exit"
+    @Override
+    public boolean doAction(Object obj) {
         
+        String value = (String)obj;
         
-    }
-
-    private String getInput() {
-        boolean valid = false; // indicates if the name has been received
-        String userInput = null;
-        Scanner keyboard = new Scanner(System.in); // keyboard input stream
-        
-        while(!valid) { //while a valid name has not been retrieved
-            //prompt for the player's name
-            System.out.println("Enter menu choice");
-            
-            //get the name from the keyboard and trimm of the blanks
-            userInput= keyboard.nextLine();
-            userInput = userInput.trim();
-            
-            //if the name is invalis (more than  characters in length)
-            if (userInput.length() > 1){
-                System.out.println("Invalid selection");
-                continue; //  and repeat again
-            }
-            ////if the name is invalis (less than two characters in length)
-            if (userInput.length() < 1){
-                System.out.println("Invalid selection");
-                continue; //  and repeat again
-            }
-            break; //out of the repitition
-            
-        }
-        return userInput; // return the name
-    }
-
-    private void doAction(char choice) {
-        
+        value = value.toUpperCase();
+        char choice = value.charAt(0);
         switch (choice) {
             case 'N': // create and start a new game
                 this.startNewGame();
@@ -87,11 +50,12 @@ public class MainMenuView {
                 this.saveGame();
                 break;
             case 'E': // Exit game
-                return;
+                return false;
             default:
                 System.out.println("\n** Invalid selection ** Try again");
                 break;      
         }
+        return true;
     }
 
     private void startNewGame() {
@@ -99,7 +63,7 @@ public class MainMenuView {
         
         //display the game menu
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+        gameMenu.display();
         
     }
 
@@ -111,7 +75,7 @@ public class MainMenuView {
         
         // display the help menu
         HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.displayHelpMenu();
+        helpMenu.display();
     }
 
     private void saveGame() {

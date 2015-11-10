@@ -11,8 +11,10 @@ import java.util.Scanner;
  *
  * @author Matt PC
  */
-public class GameMenuView {
-       private final String MENU = "\n"
+public class GameMenuView extends View {
+    
+    public GameMenuView() {
+       super("\n"
             + "\n----------------------------------------------"
             + "\n| Game Menu                                  |"
             + "\n----------------------------------------------"
@@ -24,47 +26,13 @@ public class GameMenuView {
             + "\nU - Unload barrels"
             + "\nV - Display View Menu"
             + "\nQ - Quit"
-            + "\n----------------------------------------------";
-
-    void displayMenu() {
-        char selection = ' ';
-     do{
-         System.out.println(MENU); // display the main menu
-         
-         String input = this.getInput(); // GET the user’s selection
-         selection = input.charAt(0); // get first character of string
-         
-         this.doAction(selection); // do action based on selection
-         
-     } while (selection != 'Q'); // a selection is not "Quit"
-    }
-
-    private String getInput() {
-         boolean valid = false; // indicates if the selection has been received
-        String userInput = null;
-        Scanner keyboard = new Scanner(System.in); // keyboard input stream
+            + "\n----------------------------------------------");
+}
+    public boolean doAction(Object obj) {
         
-        while(!valid) { //while a valid selection has not been retrieved
-            //prompt for the menu choice
-            System.out.println("Enter menu choice");
-            
-            //get the name from the keyboard and trimm of the blanks
-            userInput= keyboard.nextLine();
-            userInput = userInput.trim();
-            
-            //if the selection is invalid (more than one character in length)
-            if (userInput.length() > 1){
-                System.out.println("Invalid selection");
-                continue; //  and repeat again
-            }
-            break; //out of the repitition
-            
-        }
-        return userInput; // return the name
-    }
-
-    private void doAction(char choice) {
-        
+        String value = (String)obj;
+        value = value.toUpperCase();
+        char choice = value.charAt(0);
         switch (choice) {
             case 'M': // move player
                 this.displayMoveMenu();
@@ -88,11 +56,12 @@ public class GameMenuView {
                 this.displayViewMenu();
                 break;
             case 'Q': // quit menu
-                return;
+                return false;
             default:
                 System.out.println("\n** Invalid selection ** Try again");
                 break;      
         }
+        return true;
     }
 
     private void displayMoveMenu() {
@@ -104,37 +73,37 @@ public class GameMenuView {
     private void displayContstructMenu() {
         // display the construct barrel view
         ConstructMenuView constructMenu = new ConstructMenuView();
-        constructMenu.displayConstructMenu();
+        constructMenu.display();
     }
 
     private void displayHarvestMenu() {
         // display the harvest resource menu
         HarvestMenuView harvestMenu = new HarvestMenuView();
-        harvestMenu.displayHarvestMenu();
+        harvestMenu.display();
     }
 
     private void displayCollectMenu() {
        // display the collect menu
         CollectMenuView collectMenu = new CollectMenuView();
-        collectMenu.displayCollectMenu();
+        collectMenu.display();
     }
 
     private void displayLoadMenu() {
         // display the load menu to load barrels
         HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.displayHelpMenu();
+        helpMenu.display();
     }
 
     private void displayUnloadMenu() {
         // display the help menu
         HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.displayHelpMenu();
+        helpMenu.display();
     }
 
     private void displayViewMenu() {
         // display the help menu
         HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.displayHelpMenu();
+        helpMenu.display();
     }
 
 

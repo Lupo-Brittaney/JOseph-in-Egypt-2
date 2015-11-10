@@ -13,9 +13,9 @@ import josephinegypt2.JosephInEgypt2;
  *
  * @author Matt PC
  */
-public class HelpMenuView {
-    
-    private final String MENU = "\n"
+public class HelpMenuView extends View {
+    public HelpMenuView () {
+    super("\n"
             + "\n----------------------------------------------"
             + "\n| Help Menu                                  |"
             + "\n----------------------------------------------"
@@ -24,48 +24,14 @@ public class HelpMenuView {
             + "\nH - How to harvest"
             + "\nD - How to collect wood"
             + "\nQ - Quit"
-            + "\n----------------------------------------------";
-    void displayHelpMenu() {
-     char selection = ' ';
-     do{
-         System.out.println(MENU); // display the main menu
-         
-         String input = this.getInput(); // GET the user’s selection
-         selection = input.charAt(0); // get first character of string
-         
-         this.doAction(selection); // do action based on selection
-         
-     } while (selection != 'Q'); // a selection is not "Quit"
-        
-        
-    }
+            + "\n----------------------------------------------");
+}
 
-    private String getInput() {
-        boolean valid = false; // indicates if the name has been received
-        String userInput = null;
-        Scanner keyboard = new Scanner(System.in); // keyboard input stream
+    public boolean doAction(Object obj) {
         
-        while(!valid) { //while a valid name has not been retrieved
-            //prompt for the player's name
-            System.out.println("Enter menu choice");
-            
-            //get the name from the keyboard and trimm of the blanks
-            userInput= keyboard.nextLine();
-            userInput = userInput.trim();
-            
-            //if the name is invalis (less than two characters in length)
-            if (userInput.length() > 1){
-                System.out.println("Invalid selection");
-                continue; //  and repeat again
-            }
-            break; //out of the repitition
-            
-        }
-        return userInput; // return the name
-    }
-
-    private void doAction(char choice) {
-        
+        String value = (String)obj;
+        value = value.toUpperCase();
+        char choice = value.charAt(0);
         switch (choice) {
             case 'O': // game objectives
                 this.gameObjective();
@@ -80,11 +46,12 @@ public class HelpMenuView {
                 this.howToCollect();
                 break;
             case 'Q': // quit menu
-                return;
+                return false;
             default:
                 System.out.println("\n** Invalid selection ** Try again");
                 break;      
         }
+        return true;
     }
 
     private void gameObjective() {

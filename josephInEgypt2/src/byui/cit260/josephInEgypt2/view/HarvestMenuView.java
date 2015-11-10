@@ -12,12 +12,12 @@ import java.util.Scanner;
 
 /**
  *
- * @author Britt
+ * @author Matt PC
  */
-public class HarvestMenuView {
+public class HarvestMenuView extends View {
     
-    //create menu for view
-    private final String MENU = "\n" 
+    public HarvestMenuView(){
+    super("\n" 
             +"\n----------------------------------------------"
             + "\n| Harvest Resources                            |"
             + "\n----------------------------------------------"
@@ -25,60 +25,26 @@ public class HarvestMenuView {
             + "\nyou like to harvest?"
             + "\nN - To enter number of resources"
             + "\nE - Exit"
-            + "\n----------------------------------------------";
-    
-    
-    void displayHarvestMenu() {
-        char selection = ' ';
-        
-        do{
-         System.out.println(MENU); // display the menu
-         
-         String input = this.getInput(); // GET the user’s selection
-         selection = input.charAt(0); // get first character of string
-         
-         this.doAction(selection); // do action based on selection
-         
-     } while (selection != 'E'); // a selection is not ""
-    }
-       //get menu choice from user
-    private String getInput() {
-        boolean valid = false; // indicates if the input has been received
-        String userInput = null;
-        Scanner keyboard = new Scanner(System.in); // keyboard input stream
-        
-        while(!valid) { //while a valid entry has not been retrieved
-            //prompt for the choice
-            System.out.println("Enter choice");
-            
-            //get the input from the keyboard and trimm of the blanks
-            userInput= keyboard.nextLine();
-            userInput = userInput.trim();
-            
-            //if the input is invalid (greater than two characters in length)
-            if (userInput.length() > 2){
-                System.out.println("Invalid selection");
-                continue; //  and repeat again
-            }
-            break; //out of the repitition
-            
-        }
-        return userInput; // return the name
+            + "\n----------------------------------------------");
     }
     
     //do the action from the choice
-    private void doAction(char choice) {
+    public boolean doAction(Object obj) {
         
+        String value = (String)obj;
+        value = value.toUpperCase();
+        char choice = value.charAt(0);
         switch (choice) {
             case 'N': // enter number
                 this.resourceNumber();
                 break;
             case 'E': // exit menu
-                return;
+                return false;
             default:
                 System.out.println("\n** Invalid selection ** Try again");
                 break;      
         }
+        return true;
     }
     //action called when N is selected
     private void resourceNumber() {
