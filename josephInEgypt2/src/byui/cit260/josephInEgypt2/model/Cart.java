@@ -9,35 +9,40 @@ import java.io.Serializable;
 
 public class Cart implements Serializable{
 
-	private int maxCapacity;
-	private int amountLoaded;
-	private int size;
+	private int barrelsLoaded;
+	private int woodLoaded;
+        private int spaceAvail;
+        private int location;
 
-	public double getMaxCapacity() {
-                return maxCapacity;
-	}
+    public int getBarrelsLoaded() {
+        return barrelsLoaded;
+    }
 
+    public void setBarrelsLoaded(int barrelsLoaded) {
+        this.barrelsLoaded = barrelsLoaded;
+    }
 
-	public void setMaxCapacity(int maxCapacity) {
-		this.maxCapacity = maxCapacity;
-	}
+    public int getLocation() {
+        return location;
+    }
 
-	public double getAmountLoaded() {
-                return amountLoaded;
-	}
+    public void setLocation(int location) {
+        this.location = location;
+    }
 
+    public int getWoodLoaded() {
+        return woodLoaded;
+    }
 
-	public void setAmountLoaded(int amountLoaded) {
-		this.amountLoaded = amountLoaded;
-	}
+    public void setWoodLoaded(int woodLoaded) {
+        this.woodLoaded = woodLoaded;
+    }
 
-	public double getSize() {
-                return size;
-	}
+    public int getSpaceAvail() {
+        return spaceAvail;
+    }
 
-
-	public void setSize(int size) {
-		this.size = size;
-	}
-
-}
+    public void setSpaceAvail(int spaceAvail) {
+        this.spaceAvail = spaceAvail;
+    }
+}	

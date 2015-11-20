@@ -21,10 +21,13 @@ public class GameMenuView extends View {
             + "\nM - Move to new location"
             + "\nB - Construct barrels"
             + "\nH - Harvest resoures"
-            + "\nC - collect wood"
+            + "\nW - Collect wood"
             + "\nL - Load barrels"
             + "\nU - Unload barrels"
-            + "\nV - Display View Menu"
+            + "\nV - View Menu"
+            + "\n I - View items stored"
+            + "\n C - View cart contents"
+            + "\n T - Vuew turn counter"
             + "\nQ - Quit"
             + "\n----------------------------------------------");
 }
@@ -43,7 +46,7 @@ public class GameMenuView extends View {
             case 'H': // harvest
                 this.displayHarvestMenu();
                 break;
-            case 'C': // collect wood
+            case 'W': // collect wood
                 this.displayCollectMenu();
                 break;
             case 'L' : //load barrels to cart
@@ -52,8 +55,17 @@ public class GameMenuView extends View {
             case 'U' : //unload barrels from cart
                 this.displayUnloadMenu();
                 break;
-            case 'V' : //display view menu
-                this.displayViewMenu();
+            case 'V' : //display map
+                this.displaymap();
+                break;
+            case 'I':
+                this.displayItemsStored();
+                break;
+            case 'C':
+                this.displayCartContents();
+                break;
+            case 'T':
+                this.displayTurnCounter();
                 break;
             case 'Q': // quit menu
                 return false;
@@ -90,20 +102,36 @@ public class GameMenuView extends View {
 
     private void displayLoadMenu() {
         // display the load menu to load barrels
-        HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.display();
+        LoadMenuView loadMenu = new LoadMenuView();
+        loadMenu.display();
     }
 
     private void displayUnloadMenu() {
         // display the help menu
-        HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.display();
+        UnloadMenuView unloadMenu = new UnloadMenuView();
+        unloadMenu.display();
     }
 
     private void displayViewMenu() {
         // display the help menu
-        HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.display();
+        ViewMenuView viewMenu = new ViewMenuView();
+        viewMenu.display();
+    }
+
+    private void displaymap() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void displayItemsStored() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void displayCartContents() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void displayTurnCounter() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 

@@ -14,5 +14,9 @@ class ViewMenuView {
     void displayViewMenu() {
         System.out.println("\n*** displayUnloadMenu stub function called ***");
     }
+
+    void display() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
