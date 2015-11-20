@@ -23,6 +23,7 @@ public class Location implements Serializable{
     private double grainAvailable;
     private double legumeAvailable;
     private double honeyAvailable;
+    private Scene scene;
     
     
 

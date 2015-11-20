@@ -16,9 +16,11 @@ public class Pyramid implements Serializable{
     private String description;
     private String location;
     private double amountFilled;
-    private double completionTime;
-
+    
     public Pyramid() {
+        this.description = "\nThis is where everything gets stored";
+        this.amountFilled = 0;
+        this.location = "\nLocated within the city";            
     }
   
     
@@ -47,17 +49,9 @@ public class Pyramid implements Serializable{
         this.amountFilled = amountFilled;
     }
 
-    public double getCompletionTime() {
-        return completionTime;
-    }
-
-    public void setCompletionTime(double completionTime) {
-        this.completionTime = completionTime;
-    }
-
     @Override
     public String toString() {
-        return "Pyramid{" + "description=" + description + ", location=" + location + ", amountFilled=" + amountFilled + ", completionTime=" + completionTime + '}';
+        return "Pyramid{" + "description=" + description + ", location=" + location + ", amountFilled=" + amountFilled + '}';
     }
 
     @Override
@@ -66,7 +60,6 @@ public class Pyramid implements Serializable{
         hash = 31 * hash + Objects.hashCode(this.description);
         hash = 31 * hash + Objects.hashCode(this.location);
         hash = 31 * hash + (int) (Double.doubleToLongBits(this.amountFilled) ^ (Double.doubleToLongBits(this.amountFilled) >>> 32));
-        hash = 31 * hash + (int) (Double.doubleToLongBits(this.completionTime) ^ (Double.doubleToLongBits(this.completionTime) >>> 32));
         return hash;
     }
 
@@ -88,9 +81,7 @@ public class Pyramid implements Serializable{
         if (Double.doubleToLongBits(this.amountFilled) != Double.doubleToLongBits(other.amountFilled)) {
             return false;
         }
-        if (Double.doubleToLongBits(this.completionTime) != Double.doubleToLongBits(other.completionTime)) {
-            return false;
-        }
+        
         return true;
     }
     

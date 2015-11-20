@@ -11,7 +11,12 @@ public class Cart implements Serializable{
 
 	private int maxCapacity;
 	private int amountLoaded;
-	private int size;
+        
+        public Cart() {
+            this.maxCapacity = 10;
+            this.amountLoaded = 0;
+            
+    }
 
 	public double getMaxCapacity() {
                 return maxCapacity;
@@ -29,15 +34,6 @@ public class Cart implements Serializable{
 
 	public void setAmountLoaded(int amountLoaded) {
 		this.amountLoaded = amountLoaded;
-	}
-
-	public double getSize() {
-                return size;
-	}
-
-
-	public void setSize(int size) {
-		this.size = size;
 	}
 
 }
