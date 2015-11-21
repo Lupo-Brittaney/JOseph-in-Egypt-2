@@ -19,6 +19,9 @@ public class Pyramid implements Serializable{
     
 
     public Pyramid() {
+        this.description = "\nThis is where everything gets stored";
+        this.amountFilled = 0;
+        this.location = "\nLocated within the city";            
     }
   
     
@@ -47,12 +50,45 @@ public class Pyramid implements Serializable{
         this.amountFilled = amountFilled;
     }
 
-  
+    @Override
+    public String toString() {
+        return "Pyramid{" + "description=" + description + ", location=" + location + ", amountFilled=" + amountFilled + '}';
     }
 
-    
-    
-    
-    
-    
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 31 * hash + Objects.hashCode(this.description);
+        hash = 31 * hash + Objects.hashCode(this.location);
+        hash = 31 * hash + (int) (Double.doubleToLongBits(this.amountFilled) ^ (Double.doubleToLongBits(this.amountFilled) >>> 32));
+        return hash;
+    }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Pyramid other = (Pyramid) obj;
+        if (!Objects.equals(this.description, other.description)) {
+            return false;
+        }
+        if (!Objects.equals(this.location, other.location)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.amountFilled) != Double.doubleToLongBits(other.amountFilled)) {
+            return false;
+        }
+        
+        return true;
+    }
+    
+    
+    
+    
+    
+    
+}

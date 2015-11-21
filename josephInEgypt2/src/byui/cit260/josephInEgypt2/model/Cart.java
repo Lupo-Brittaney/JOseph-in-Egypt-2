@@ -9,10 +9,19 @@ import java.io.Serializable;
 
 public class Cart implements Serializable{
 
+
 	private int barrelsLoaded;
-	private int woodLoaded;
-        private int spaceAvail;
-        private int location;
+        private int maxCapacity;
+	private int amountLoaded;
+        
+        public Cart() {
+            this.maxCapacity = 10;
+            this.amountLoaded = 0;
+            this.barrelsLoaded= 0;
+            
+            
+    }
+
 
     public int getBarrelsLoaded() {
         return barrelsLoaded;
@@ -22,27 +31,26 @@ public class Cart implements Serializable{
         this.barrelsLoaded = barrelsLoaded;
     }
 
-    public int getLocation() {
-        return location;
+    public int getMaxCapacity() {
+        return maxCapacity;
     }
 
-    public void setLocation(int location) {
-        this.location = location;
+    public void setMaxCapacity(int maxCapacity) {
+        this.maxCapacity = maxCapacity;
     }
 
-    public int getWoodLoaded() {
-        return woodLoaded;
+    public int getAmountLoaded() {
+        return amountLoaded;
     }
 
-    public void setWoodLoaded(int woodLoaded) {
-        this.woodLoaded = woodLoaded;
+    public void setAmountLoaded(int amountLoaded) {
+        this.amountLoaded = amountLoaded;
     }
+    
+    
+}
 
-    public int getSpaceAvail() {
-        return spaceAvail;
-    }
 
-    public void setSpaceAvail(int spaceAvail) {
-        this.spaceAvail = spaceAvail;
-    }
-}	
+    
+
+

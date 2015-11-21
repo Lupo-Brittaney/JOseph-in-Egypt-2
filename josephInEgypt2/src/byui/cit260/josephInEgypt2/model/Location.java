@@ -5,17 +5,19 @@
  */
 package byui.cit260.josephInEgypt2.model;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 /**
  *
  * @author Britt
  */
 public class Location implements Serializable{
-    private String visited;
+    private boolean visited;
     private double row;
     private double column;
-    private String itemAvailable;
-  
+    private Scene scene;
+    private ArrayList<Actor> actor;
+
     
     
 
@@ -23,11 +25,11 @@ public class Location implements Serializable{
     }
     
 
-    public String getVisited() {
+    public boolean getVisited() {
         return visited;
     }
 
-    public void setVisited(String visited) {
+    public void setVisited(boolean visited) {
         this.visited = visited;
     }
 
@@ -47,13 +49,24 @@ public class Location implements Serializable{
         this.column = column;
     }
 
-    public String getItemAvailable() {
-        return itemAvailable;
+    public Scene getScene() {
+        return scene;
     }
 
-    public void setItemAvailable(String itemAvailable) {
-        this.itemAvailable = itemAvailable;
+    public void setScene(Scene scene) {
+        this.scene = scene;
     }
+
+    public ArrayList<Actor> getActor() {
+        return actor;
+    }
+
+    public void setActor(ArrayList<Actor> actor) {
+        this.actor = actor;
+    }
+    
+
+   
 }
 
     

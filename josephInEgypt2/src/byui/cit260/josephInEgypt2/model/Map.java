@@ -12,8 +12,13 @@ import java.io.Serializable;
 public class Map implements Serializable{
     private double row;
     private double column;
+    private Location[][] locations;
 
     public Map() {
+    }
+
+    public Map(int i, int i0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     public double getRow() {
