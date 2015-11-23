@@ -36,12 +36,12 @@ public class CollectMenuView extends View {
                 this.spaceAvailable();
                 break;
             case 'E': // exit menu
-                return false;
+                return true;
             default:
                 System.out.println("\n** Invalid selection ** Try again");
                 break;      
         }
-        return true;
+        return false;
     }
     
     private void spaceAvailable() {

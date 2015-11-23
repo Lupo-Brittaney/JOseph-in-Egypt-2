@@ -15,13 +15,17 @@ public class Game implements Serializable{
     
     //class instance variables
     private double totalTime;
-    private double livesSaved;
+    
     
     private Map map;
     private Player player;
     private Pyramid pyramid;
     private Cart cart;
     private ResourceItem[] resource;
+    private String[] actor;
+    
+    public Game() {
+    }
 
     public Pyramid getPyramid() {
         return pyramid;
@@ -47,8 +51,7 @@ public class Game implements Serializable{
         this.resource = resource;
     }
 
-    public Game() {
-    }
+    
     
     
     public double getTotalTime() {
@@ -59,13 +62,7 @@ public class Game implements Serializable{
         this.totalTime = totalTime;
     }
 
-    public double getLivesSaved() {
-        return livesSaved;
-    }
-
-    public void setLivesSaved(double livesSaved) {
-        this.livesSaved = livesSaved;
-    }
+   
 
     public Map getMap() {
         return map;
@@ -83,44 +80,23 @@ public class Game implements Serializable{
         this.player = player;
     }
 
+    public String[] getActor() {
+        return actor;
+    }
+
+    public void setActor(String[] actor) {
+        this.actor = actor;
+    }
+
+    
     @Override
     public String toString() {
-        return "Game{" + "totalTime=" + totalTime + ", livesSaved=" + livesSaved + '}';
+        return "Game{" + "totalTime=" + totalTime +  '}';
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 83 * hash + (int) (Double.doubleToLongBits(this.totalTime) ^ (Double.doubleToLongBits(this.totalTime) >>> 32));
-        hash = 83 * hash + (int) (Double.doubleToLongBits(this.livesSaved) ^ (Double.doubleToLongBits(this.livesSaved) >>> 32));
-        return hash;
-    }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Game other = (Game) obj;
-        if (Double.doubleToLongBits(this.totalTime) != Double.doubleToLongBits(other.totalTime)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.livesSaved) != Double.doubleToLongBits(other.livesSaved)) {
-            return false;
-        }
-        return true;
-    }
 
-    public void setInventory(GameControl.InventoryItem[] inventoryList) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setPlayer(Player player) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+ 
 
     
     

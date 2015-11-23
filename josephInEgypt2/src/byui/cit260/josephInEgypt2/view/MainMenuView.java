@@ -50,12 +50,12 @@ public class MainMenuView extends View {
                 this.saveGame();
                 break;
             case 'E': // Exit game
-                return false;
+                return true;
             default:
                 System.out.println("\n** Invalid selection ** Try again");
                 break;      
         }
-        return true;
+        return false;
     }
 
     private void startNewGame() {

@@ -36,12 +36,12 @@ public class ConstructMenuView extends View {
                 this.barrelNumber();
                 break;
             case 'E': // exit menu
-                return false;
+                return true;
             default:
                 System.out.println("\n** Invalid selection ** Try again");
                 break;      
         }
-        return true;
+        return false;
     }
     //action called when N is selected
     private void barrelNumber() {

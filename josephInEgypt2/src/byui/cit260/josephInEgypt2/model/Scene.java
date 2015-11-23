@@ -13,6 +13,9 @@ import java.io.Serializable;
  */
 public class Scene implements Serializable{
     private String description;
+    private String symbol;
+    private boolean blocked;
+    private Location[] location;
        
 
     public Scene(){
@@ -28,4 +31,30 @@ public class Scene implements Serializable{
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
+    }
+
+    public boolean isBlocked() {
+        return blocked;
+    }
+
+    public void setBlocked(boolean blocked) {
+        this.blocked = blocked;
+    }
+
+    public Location[] getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location[] location) {
+        this.location = location;
+    }
+    
+    
 }

@@ -39,12 +39,12 @@ public class UnloadMenuView extends View {
                 this.unloadCart();
                 break;
             case 'E': // Exit game
-                return false;
+                return true;
             default:
                 System.out.println("\n** Invalid selection ** Try again");
                 break;      
         }
-        return true;
+        return false;
         }
 
     private void unloadCart() {

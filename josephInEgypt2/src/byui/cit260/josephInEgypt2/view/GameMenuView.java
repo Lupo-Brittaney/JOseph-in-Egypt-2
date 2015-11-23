@@ -5,7 +5,13 @@
  */
 package byui.cit260.josephInEgypt2.view;
 
+import byui.cit260.josephInEgypt2.control.GameControl;
+import byui.cit260.josephInEgypt2.model.Location;
+import byui.cit260.josephInEgypt2.model.ResourceItem;
+import byui.cit260.josephInEgypt2.model.Scene;
+import java.awt.Point;
 import java.util.Scanner;
+import josephinegypt2.JosephInEgypt2;
 
 /**
  *
@@ -24,13 +30,14 @@ public class GameMenuView extends View {
             + "\nW - Collect wood"
             + "\nL - Load barrels"
             + "\nU - Unload barrels"
-            + "\nV - View Menu"
+            + "\nV - View Map"
             + "\n I - View items stored"
             + "\n C - View cart contents"
             + "\n T - Vuew turn counter"
             + "\nQ - Quit"
             + "\n----------------------------------------------");
 }
+    @Override
     public boolean doAction(Object obj) {
         
         String value = (String)obj;
@@ -56,24 +63,24 @@ public class GameMenuView extends View {
                 this.displayUnloadMenu();
                 break;
             case 'V' : //display map
-                this.displaymap();
+                this.displayMap();
                 break;
-            case 'I':
+            case 'I'://view items stored
                 this.displayItemsStored();
                 break;
-            case 'C':
+            case 'C'://view cart contents
                 this.displayCartContents();
                 break;
-            case 'T':
+            case 'T'://diaplay turn counter
                 this.displayTurnCounter();
                 break;
             case 'Q': // quit menu
-                return false;
+                return true;
             default:
                 System.out.println("\n** Invalid selection ** Try again");
                 break;      
         }
-        return true;
+        return false;
     }
 
     private void displayMoveMenu() {
@@ -112,18 +119,54 @@ public class GameMenuView extends View {
         unloadMenu.display();
     }
 
-    private void displayViewMenu() {
-        // display the help menu
-        ViewMenuView viewMenu = new ViewMenuView();
-        viewMenu.display();
-    }
+    public void displayMap() {
+        Location[][] locations = JosephInEgypt2.getCurrentGame().getMap().getLocations();
+        //Title display
+        System.out.println("\n |**********************************************Joseph's Map of Egypt*************************************************************************|");
 
-    private void displaymap() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //Row and column display
+        System.out.println("\n |   0  |   1  |   2  |   3  |   4  |  5   |   6  |   7  |   8  |   9  |  10  |  11  |  12  |  13  |  14  |  15  |  16  |  17  |  18  |  19  |");
+        for (int i = 0; i < locations.length; i++) {
+
+            System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------");
+
+            String grid = i + "|";
+            for (int j = 0; j < locations[i].length; j++) {
+                Location location = locations[i][j];
+
+                String symbol;
+
+                if (location.getVisited()) {
+
+                    Scene scene = location.getScene();
+                    symbol = scene.getSymbol();
+                } else {
+                    symbol = " ?? ";
+                }
+                grid += (" " + symbol + " |");
+            }
+            System.out.println(grid);
+        }
+
     }
 
     private void displayItemsStored() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //get the sorted list of inventory items for the current game
+        ResourceItem[] resource = GameControl.getSortedInventoryList();
+
+        System.out.println("\n List of Stored Itesm");
+        System.out.println("Decsription" + "\t"
+                + "Required" + "\t"
+                + "In Stock");
+
+        //for each inventory item
+        for (ResourceItem resourceItem : resource) {
+            //display the description, the required amount and amount in stock
+            System.out.println(resourceItem.getDescription() + "\t"
+                    + resourceItem.getRequiredAmount() + "\t"
+                    + resourceItem.getQuantityInStock());
+        }
+
     }
 
     private void displayCartContents() {
@@ -134,6 +177,4 @@ public class GameMenuView extends View {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-
-    
 }

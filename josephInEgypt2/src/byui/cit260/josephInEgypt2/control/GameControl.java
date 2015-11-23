@@ -5,13 +5,17 @@
  */
 package byui.cit260.josephInEgypt2.control;
 
+import byui.cit260.josephInEgypt2.control.MapControl.SceneType;
 import byui.cit260.josephInEgypt2.model.Cart;
+import byui.cit260.josephInEgypt2.model.Constants;
 import byui.cit260.josephInEgypt2.model.Game;
+import byui.cit260.josephInEgypt2.model.Location;
 import byui.cit260.josephInEgypt2.model.Map;
 import byui.cit260.josephInEgypt2.model.Player;
 import byui.cit260.josephInEgypt2.model.Pyramid;
 import byui.cit260.josephInEgypt2.model.ResourceItem;
-import javafx.scene.Scene;
+import byui.cit260.josephInEgypt2.model.Scene;
+
 import josephinegypt2.JosephInEgypt2;
 
 /**
@@ -21,30 +25,51 @@ import josephinegypt2.JosephInEgypt2;
 public class GameControl {
 
     public static void createNewGame(Player player) {
-        Game game = new Game();
+        Game game = new Game(); //create new game
         JosephInEgypt2.setCurrentGame(game);
         
-        game.setPlayer(player);
+        game.setPlayer(player);// save player in game
         
+        //create inventory list and save in game
         ResourceItem[] resourceList = GameControl.createResourceList();
         game.setResource(resourceList);
         
+        //create pyramid
         Pyramid pyramid = new Pyramid();
-        game.setPyramid(pyramid);
+        game.setPyramid(pyramid);//save in game
         
-        Cart cart = new Cart();
-        game.setCart(cart);
+        Cart cart = new Cart();//create cart
+        game.setCart(cart);//save in game
         
-        Map map = MapControl.createMap();
-        game.setMap(map);
+        Map map = MapControl.createMap();//create map and initialize
+        game.setMap(map);//save in game
         
-        MapControl.moveActorsToStartingLocation(map);
+        MapControl.moveActorsToStartingLocation(map);// move actors to starting location
     }
 
-    static void assignScenesToLocations(Map map, Scene[] scenes) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static ResourceItem[] getSortedInventoryList() {
+        //Get inventory list for the current game
+        ResourceItem[] originalInventoryList = JosephInEgypt2.getCurrentGame().getResource();
+        
+        //clone originalList
+        ResourceItem[] inventoryList = originalInventoryList.clone();
+        
+        //using a bubbleSort to sort the list by name
+        ResourceItem tempResourceItem;
+        for (int i =0; i< inventoryList.length-1; i++){
+            for (int j = 0; j < inventoryList.length-1-i; j++){
+                if (inventoryList[j].getDescription().compareToIgnoreCase(inventoryList[j +1].getDescription())>0){
+                    tempResourceItem = inventoryList[j];
+                    inventoryList[j]= inventoryList[j+1];
+                    inventoryList[j+1] = tempResourceItem;
+                }
+            }
+        }
+        return inventoryList;
     }
-    
+        
+
+       
     public enum Item {
         wood,
         grain,
@@ -84,4 +109,47 @@ public class GameControl {
         return resource;
     }
     
+    
+    public static void assignScenesToLocations(Map map, Scene[] scenes){
+        Location[][] locations = map.getLocations();
+        
+        //city
+        locations[10][10].setScene(scenes[SceneType.city.ordinal()]);
+        //start point
+        locations[0][0].setScene(scenes[SceneType.start.ordinal()]);
+        //finish point
+        locations[0][19].setScene(scenes[SceneType.finish.ordinal()]);
+        
+        //grain locations
+        locations[0][3].setScene(scenes[SceneType.grain.ordinal()]);
+        locations[2][16].setScene(scenes[SceneType.grain.ordinal()]);
+        locations[0][15].setScene(scenes[SceneType.grain.ordinal()]);
+        locations[10][13].setScene(scenes[SceneType.grain.ordinal()]);
+        locations[5][6].setScene(scenes[SceneType.grain.ordinal()]);
+        locations[8][3].setScene(scenes[SceneType.grain.ordinal()]);
+        locations[12][1].setScene(scenes[SceneType.grain.ordinal()]);
+        locations[15][11].setScene(scenes[SceneType.grain.ordinal()]);
+        locations[18][2].setScene(scenes[SceneType.grain.ordinal()]);
+        locations[1][5].setScene(scenes[SceneType.grain.ordinal()]);
+        
+        //legume locations
+        locations[15][4].setScene(scenes[SceneType.legume.ordinal()]);
+        locations[10][14].setScene(scenes[SceneType.legume.ordinal()]);
+        locations[12][5].setScene(scenes[SceneType.legume.ordinal()]);
+        locations[3][19].setScene(scenes[SceneType.legume.ordinal()]);
+        locations[6][7].setScene(scenes[SceneType.legume.ordinal()]);
+        locations[9][4].setScene(scenes[SceneType.legume.ordinal()]);
+        locations[11][2].setScene(scenes[SceneType.legume.ordinal()]);
+        locations[10][18].setScene(scenes[SceneType.legume.ordinal()]);
+        locations[18][18].setScene(scenes[SceneType.legume.ordinal()]);
+        
+        
+        //honey locations
+        locations[19][19].setScene(scenes[SceneType.honey.ordinal()]);
+        locations[1][1].setScene(scenes[SceneType.honey.ordinal()]);
+        
+        
+        
+        
+    }
 }

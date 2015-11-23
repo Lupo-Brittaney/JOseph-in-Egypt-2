@@ -46,12 +46,12 @@ public class HelpMenuView extends View {
                 this.howToCollect();
                 break;
             case 'Q': // quit menu
-                return false;
+                return true;
             default:
                 System.out.println("\n** Invalid selection ** Try again");
                 break;      
         }
-        return true;
+        return false;
     }
 
     private void gameObjective() {
