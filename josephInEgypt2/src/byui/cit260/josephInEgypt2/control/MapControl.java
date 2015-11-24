@@ -23,7 +23,7 @@ public class MapControl {
 
     public static Map createMap() {
         //create the map
-        Map map = new Map(20, 20);
+        Map map = new Map(5, 5);
         //create a list of the differetn scenes
         Scene[] scenes = createScenes();
         //assign the different scenes to locations in the map
@@ -49,7 +49,7 @@ public class MapControl {
         Scene startingScene = new Scene();
         startingScene.setDescription(
                 " This is the beginning.");
-        startingScene.setSymbol("ST");
+        startingScene.setSymbol("S");
         startingScene.setBlocked(false);
         scenes[SceneType.start.ordinal()] = startingScene;
         
@@ -57,7 +57,7 @@ public class MapControl {
         Scene finishScene = new Scene();
         finishScene.setDescription(
                 "This is the end.");
-        finishScene.setSymbol("FN");
+        finishScene.setSymbol("F");
         finishScene.setBlocked(false);
         scenes[SceneType.finish.ordinal()]= finishScene;
         
@@ -66,28 +66,28 @@ public class MapControl {
                 "Grain is here.");
         grainScene.setSymbol("G");
         grainScene.setBlocked(false);
-        scenes[SceneType.finish.ordinal()]= finishScene;
+        scenes[SceneType.grain.ordinal()]= grainScene;
         
          Scene legumeScene = new Scene();
         legumeScene.setDescription(
                 "Legume is here.");
         legumeScene.setSymbol("L");
         legumeScene.setBlocked(false);
-        scenes[SceneType.legume.ordinal()]= finishScene;
+        scenes[SceneType.legume.ordinal()]= legumeScene;
         
         Scene honeyScene = new Scene();
         honeyScene.setDescription(
                 "Honey is here.");
         honeyScene.setSymbol("H");
         honeyScene.setBlocked(false);
-        scenes[SceneType.honey.ordinal()]= finishScene;
+        scenes[SceneType.honey.ordinal()]= honeyScene;
         
         Scene cityScene = new Scene();
         cityScene.setDescription(
                 "This is the city.");
         cityScene.setSymbol("C");
         cityScene.setBlocked(false);
-        scenes[SceneType.city.ordinal()]= finishScene;
+        scenes[SceneType.city.ordinal()]= cityScene;
         
         return scenes;
     }

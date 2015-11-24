@@ -47,25 +47,25 @@ public class GameControl {
         MapControl.moveActorsToStartingLocation(map);// move actors to starting location
     }
 
-    public static ResourceItem[] getSortedInventoryList() {
+    public static ResourceItem[] getSortedResourceList() {
         //Get inventory list for the current game
-        ResourceItem[] originalInventoryList = JosephInEgypt2.getCurrentGame().getResource();
+        ResourceItem[] originalResourceList = JosephInEgypt2.getCurrentGame().getResource();
         
         //clone originalList
-        ResourceItem[] inventoryList = originalInventoryList.clone();
+        ResourceItem[] resourceList = originalResourceList.clone();
         
         //using a bubbleSort to sort the list by name
         ResourceItem tempResourceItem;
-        for (int i =0; i< inventoryList.length-1; i++){
-            for (int j = 0; j < inventoryList.length-1-i; j++){
-                if (inventoryList[j].getDescription().compareToIgnoreCase(inventoryList[j +1].getDescription())>0){
-                    tempResourceItem = inventoryList[j];
-                    inventoryList[j]= inventoryList[j+1];
-                    inventoryList[j+1] = tempResourceItem;
+        for (int i =0; i< resourceList.length-1; i++){
+            for (int j = 0; j < resourceList.length-1-i; j++){
+                if (resourceList[j].getDescription().compareToIgnoreCase(resourceList[j + 1].getDescription())>0){
+                    tempResourceItem = resourceList[j];
+                    resourceList[j]= resourceList[j+1];
+                    resourceList[j+1] = tempResourceItem;
                 }
             }
         }
-        return inventoryList;
+        return resourceList;
     }
         
 
@@ -114,42 +114,93 @@ public class GameControl {
         Location[][] locations = map.getLocations();
         
         //city
-        locations[10][10].setScene(scenes[SceneType.city.ordinal()]);
+        locations[2][2].setScene(scenes[SceneType.city.ordinal()]);
+        locations[2][2].setVisited(true);
         //start point
-        locations[0][0].setScene(scenes[SceneType.start.ordinal()]);
+        //locations[0][0].setScene(scenes[SceneType.start.ordinal()]);
+        //locations[0][0].setVisited(true);
         //finish point
-        locations[0][19].setScene(scenes[SceneType.finish.ordinal()]);
+        //locations[0][19].setScene(scenes[SceneType.finish.ordinal()]);
+        //locations[0][19].setVisited(true);
         
         //grain locations
-        locations[0][3].setScene(scenes[SceneType.grain.ordinal()]);
-        locations[2][16].setScene(scenes[SceneType.grain.ordinal()]);
-        locations[0][15].setScene(scenes[SceneType.grain.ordinal()]);
-        locations[10][13].setScene(scenes[SceneType.grain.ordinal()]);
-        locations[5][6].setScene(scenes[SceneType.grain.ordinal()]);
-        locations[8][3].setScene(scenes[SceneType.grain.ordinal()]);
-        locations[12][1].setScene(scenes[SceneType.grain.ordinal()]);
-        locations[15][11].setScene(scenes[SceneType.grain.ordinal()]);
-        locations[18][2].setScene(scenes[SceneType.grain.ordinal()]);
-        locations[1][5].setScene(scenes[SceneType.grain.ordinal()]);
+        locations[1][1].setScene(scenes[SceneType.grain.ordinal()]);
+        locations[1][1].setVisited(true);
         
+        locations[4][1].setScene(scenes[SceneType.grain.ordinal()]);
+        locations[4][1].setVisited(false);
+        
+        locations[3][2].setScene(scenes[SceneType.grain.ordinal()]);
+        locations[3][2].setVisited(false);
+        
+        locations[4][2].setScene(scenes[SceneType.grain.ordinal()]);
+        locations[4][2].setVisited(false);
+        
+        locations[1][3].setScene(scenes[SceneType.grain.ordinal()]);
+        locations[1][3].setVisited(false);
+        
+        locations[3][3].setScene(scenes[SceneType.grain.ordinal()]);
+        locations[3][3].setVisited(false);
+        
+        locations[0][3].setScene(scenes[SceneType.grain.ordinal()]);
+        locations[0][3].setVisited(false);
+        
+        locations[4][4].setScene(scenes[SceneType.grain.ordinal()]);
+        locations[4][4].setVisited(false);
+        
+        locations[2][0].setScene(scenes[SceneType.grain.ordinal()]);
+        locations[2][0].setVisited(false);
+        
+        locations[0][0].setScene(scenes[SceneType.grain.ordinal()]);
+        locations[0][0].setVisited(false);
         //legume locations
-        locations[15][4].setScene(scenes[SceneType.legume.ordinal()]);
-        locations[10][14].setScene(scenes[SceneType.legume.ordinal()]);
-        locations[12][5].setScene(scenes[SceneType.legume.ordinal()]);
-        locations[3][19].setScene(scenes[SceneType.legume.ordinal()]);
-        locations[6][7].setScene(scenes[SceneType.legume.ordinal()]);
-        locations[9][4].setScene(scenes[SceneType.legume.ordinal()]);
-        locations[11][2].setScene(scenes[SceneType.legume.ordinal()]);
-        locations[10][18].setScene(scenes[SceneType.legume.ordinal()]);
-        locations[18][18].setScene(scenes[SceneType.legume.ordinal()]);
+        locations[2][1].setScene(scenes[SceneType.legume.ordinal()]);
+        locations[2][1].setVisited(false);
+        
+        locations[3][1].setScene(scenes[SceneType.legume.ordinal()]);
+        locations[3][1].setVisited(false);
+        
+        locations[0][1].setScene(scenes[SceneType.legume.ordinal()]);
+        locations[0][1].setVisited(false);
+        
+        locations[1][2].setScene(scenes[SceneType.legume.ordinal()]);
+        locations[1][2].setVisited(false);
+        
+        locations[2][3].setScene(scenes[SceneType.legume.ordinal()]);
+        locations[2][3].setVisited(false);
+        
+        locations[4][3].setScene(scenes[SceneType.legume.ordinal()]);
+        locations[4][3].setVisited(false);
+        
+        locations[3][4].setScene(scenes[SceneType.legume.ordinal()]);
+        locations[3][4].setVisited(false);
+        
+        locations[1][0].setScene(scenes[SceneType.legume.ordinal()]);
+        locations[1][0].setVisited(false);
+        
+        locations[3][0].setScene(scenes[SceneType.legume.ordinal()]);
+        locations[3][0].setVisited(false);
+        
+        locations[4][0].setScene(scenes[SceneType.legume.ordinal()]);
+        locations[4][0].setVisited(false);
         
         
         //honey locations
-        locations[19][19].setScene(scenes[SceneType.honey.ordinal()]);
-        locations[1][1].setScene(scenes[SceneType.honey.ordinal()]);
+        locations[0][2].setScene(scenes[SceneType.honey.ordinal()]);
+        locations[0][2].setVisited(false);
         
+        locations[1][4].setScene(scenes[SceneType.honey.ordinal()]);
+        locations[1][4].setVisited(false);
+        
+        locations[2][4].setScene(scenes[SceneType.honey.ordinal()]);
+        locations[2][4].setVisited(false);
+        
+        locations[0][4].setScene(scenes[SceneType.honey.ordinal()]);
+        locations[0][4].setVisited(false);
         
         
         
     }
+    
+   
 }

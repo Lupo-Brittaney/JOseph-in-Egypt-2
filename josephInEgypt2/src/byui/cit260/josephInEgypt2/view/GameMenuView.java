@@ -122,13 +122,13 @@ public class GameMenuView extends View {
     public void displayMap() {
         Location[][] locations = JosephInEgypt2.getCurrentGame().getMap().getLocations();
         //Title display
-        System.out.println("\n |**********************************************Joseph's Map of Egypt*************************************************************************|");
+        System.out.println("\n |******Joseph's Map of Egypt******|");
 
         //Row and column display
-        System.out.println("\n |   0  |   1  |   2  |   3  |   4  |  5   |   6  |   7  |   8  |   9  |  10  |  11  |  12  |  13  |  14  |  15  |  16  |  17  |  18  |  19  |");
+        System.out.println("\n |  0  |  1  |  2  |  3  |  4  |");
         for (int i = 0; i < locations.length; i++) {
 
-            System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("--------------------------------");
 
             String grid = i + "|";
             for (int j = 0; j < locations[i].length; j++) {
@@ -136,12 +136,12 @@ public class GameMenuView extends View {
 
                 String symbol;
 
-                if (location.getVisited()) {
+                if (location.getVisited() == true) {
 
                     Scene scene = location.getScene();
                     symbol = scene.getSymbol();
                 } else {
-                    symbol = " ?? ";
+                    symbol = " ? ";
                 }
                 grid += (" " + symbol + " |");
             }
@@ -152,7 +152,7 @@ public class GameMenuView extends View {
 
     private void displayItemsStored() {
         //get the sorted list of inventory items for the current game
-        ResourceItem[] resource = GameControl.getSortedInventoryList();
+        ResourceItem[] resource = GameControl.getSortedResourceList();
 
         System.out.println("\n List of Stored Itesm");
         System.out.println("Decsription" + "\t"
