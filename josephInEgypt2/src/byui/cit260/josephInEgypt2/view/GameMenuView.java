@@ -86,7 +86,7 @@ public class GameMenuView extends View {
     private void displayMoveMenu() {
         // display the move screen
         MoveMenuView moveMenu = new MoveMenuView();
-        moveMenu.displayMoveMenu();
+        moveMenu.display();
     }
 
     private void displayContstructMenu() {
@@ -135,8 +135,12 @@ public class GameMenuView extends View {
                 Location location = locations[i][j];
 
                 String symbol;
+               
 
-                if (location.getVisited() == true) {
+                
+                        
+                        
+               if(location.getVisited() == true) {
 
                     Scene scene = location.getScene();
                     symbol = scene.getSymbol();
@@ -144,6 +148,7 @@ public class GameMenuView extends View {
                     symbol = " ? ";
                 }
                 grid += (" " + symbol + " |");
+            
             }
             System.out.println(grid);
         }

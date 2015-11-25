@@ -17,7 +17,10 @@ public class Location implements Serializable{
     private double column;
     private Scene scene;
     private ArrayList<Actor> actor;
-
+    private int grain;
+    private int wood;
+    private int honey;
+    private int legume;
     
     
 
@@ -63,6 +66,38 @@ public class Location implements Serializable{
 
     public void setActor(ArrayList<Actor> actor) {
         this.actor = actor;
+    }
+
+    public int getGrain() {
+        return grain;
+    }
+
+    public void setGrain(int grain) {
+        this.grain = grain;
+    }
+
+    public int getWood() {
+        return wood;
+    }
+
+    public void setWood(int wood) {
+        this.wood = wood;
+    }
+
+    public int getHoney() {
+        return honey;
+    }
+
+    public void setHoney(int honey) {
+        this.honey = honey;
+    }
+
+    public int getLegume() {
+        return legume;
+    }
+
+    public void setLegume(int legume) {
+        this.legume = legume;
     }
     
 

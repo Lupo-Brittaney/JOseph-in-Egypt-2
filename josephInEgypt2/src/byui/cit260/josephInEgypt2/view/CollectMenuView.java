@@ -46,7 +46,7 @@ public class CollectMenuView extends View {
     
     private void spaceAvailable() {
         
-        double noUnits = 0;  //get from inventory
+        double noUnits = 10;  //get from inventory
         double cartSpace = 0;  //unknown?
         double remainingSpaces = this.calcSpaces(noUnits, cartSpace);
         //display message

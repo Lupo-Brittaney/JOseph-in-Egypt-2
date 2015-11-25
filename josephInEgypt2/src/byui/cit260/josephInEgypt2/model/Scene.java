@@ -16,6 +16,7 @@ public class Scene implements Serializable{
     private String symbol;
     private boolean blocked;
     private Location[] location;
+    
        
 
     public Scene(){
@@ -55,6 +56,6 @@ public class Scene implements Serializable{
     public void setLocation(Location[] location) {
         this.location = location;
     }
-    
-    
-}
+
+
+    }

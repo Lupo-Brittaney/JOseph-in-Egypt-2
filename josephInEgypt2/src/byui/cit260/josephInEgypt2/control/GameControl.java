@@ -47,6 +47,47 @@ public class GameControl {
         MapControl.moveActorsToStartingLocation(map);// move actors to starting location
     }
 
+           
+    public enum Item {
+        wood,
+        grain,
+        legume,
+        honey;
+    }
+
+    public static ResourceItem[] createResourceList() {
+        
+        ResourceItem[] resource =
+                new ResourceItem[Constants.NUMBER_OF_RESOURCE_ITEMS];
+        
+        ResourceItem wood = new ResourceItem();
+        wood.setDescription("wood");
+        wood.setQuantityInStock(0);
+        wood.setRequiredAmount(0);
+        resource[Item.wood.ordinal()] = wood;
+        
+        ResourceItem grain = new ResourceItem();
+        grain.setDescription("grain");
+        grain.setQuantityInStock(0);
+        grain.setRequiredAmount(20);
+        resource[Item.grain.ordinal()] = grain;
+        
+        ResourceItem legume = new ResourceItem();
+        legume.setDescription("legume");
+        legume.setQuantityInStock(0);
+        legume.setRequiredAmount(40);
+        resource[Item.legume.ordinal()] = legume;
+        
+        
+        ResourceItem honey = new ResourceItem();
+        honey.setDescription("honey");
+        honey.setQuantityInStock(0);
+        honey.setRequiredAmount(2);
+        resource[Item.honey.ordinal()] = honey;
+        
+        return resource;
+    }
+    
     public static ResourceItem[] getSortedResourceList() {
         //Get inventory list for the current game
         ResourceItem[] originalResourceList = JosephInEgypt2.getCurrentGame().getResource();
@@ -69,45 +110,7 @@ public class GameControl {
     }
         
 
-       
-    public enum Item {
-        wood,
-        grain,
-        legume,
-        honey;
-    }
 
-    public static ResourceItem[] createResourceList() {
-        
-        ResourceItem[] resource =
-                new ResourceItem[Constants.NUMBER_OF_RESOURCE_ITEMS];
-        
-        ResourceItem wood = new ResourceItem();
-        wood.setDescription("Wood");
-        wood.setQuantityInStock(0);
-        wood.setRequiredAmount(0);
-        resource[Item.wood.ordinal()] = wood;
-        
-        ResourceItem grain = new ResourceItem();
-        grain.setDescription("Grain");
-        grain.setQuantityInStock(0);
-        grain.setRequiredAmount(10);
-        resource[Item.grain.ordinal()] = grain;
-        
-        ResourceItem legume = new ResourceItem();
-        grain.setDescription("Legume");
-        grain.setQuantityInStock(0);
-        grain.setRequiredAmount(10);
-        resource[Item.legume.ordinal()] = legume;
-        
-        ResourceItem honey = new ResourceItem();
-        honey.setDescription("Honey");
-        honey.setQuantityInStock(0);
-        honey.setRequiredAmount(2);
-        resource[Item.honey.ordinal()] = honey;
-        
-        return resource;
-    }
     
     
     public static void assignScenesToLocations(Map map, Scene[] scenes){
@@ -125,79 +128,102 @@ public class GameControl {
         
         //grain locations
         locations[1][1].setScene(scenes[SceneType.grain.ordinal()]);
-        locations[1][1].setVisited(true);
+        locations[1][1].setVisited(false);
+        locations [1][1].setGrain(4);
         
         locations[4][1].setScene(scenes[SceneType.grain.ordinal()]);
         locations[4][1].setVisited(false);
+        locations[4][1].setGrain(6);
         
         locations[3][2].setScene(scenes[SceneType.grain.ordinal()]);
         locations[3][2].setVisited(false);
+        locations[3][2].setGrain(4);
         
         locations[4][2].setScene(scenes[SceneType.grain.ordinal()]);
         locations[4][2].setVisited(false);
+        locations[4][2].setGrain(6);
         
         locations[1][3].setScene(scenes[SceneType.grain.ordinal()]);
         locations[1][3].setVisited(false);
+        locations[1][3].setGrain(4);
         
         locations[3][3].setScene(scenes[SceneType.grain.ordinal()]);
         locations[3][3].setVisited(false);
+        locations[3][3].setGrain(6);
         
         locations[0][3].setScene(scenes[SceneType.grain.ordinal()]);
         locations[0][3].setVisited(false);
+        locations[0][3].setGrain(4);
         
         locations[4][4].setScene(scenes[SceneType.grain.ordinal()]);
         locations[4][4].setVisited(false);
+        locations[4][4].setGrain(4);
         
         locations[2][0].setScene(scenes[SceneType.grain.ordinal()]);
         locations[2][0].setVisited(false);
+        locations[2][0].setGrain(4);
         
         locations[0][0].setScene(scenes[SceneType.grain.ordinal()]);
         locations[0][0].setVisited(false);
+        locations[0][0].setGrain(4);
+        
         //legume locations
         locations[2][1].setScene(scenes[SceneType.legume.ordinal()]);
         locations[2][1].setVisited(false);
+        locations[2][1].setLegume(4);
         
         locations[3][1].setScene(scenes[SceneType.legume.ordinal()]);
         locations[3][1].setVisited(false);
-        
+        locations[3][1].setLegume(6);
+                
         locations[0][1].setScene(scenes[SceneType.legume.ordinal()]);
         locations[0][1].setVisited(false);
-        
+        locations[0][1].setLegume(6);
+                
         locations[1][2].setScene(scenes[SceneType.legume.ordinal()]);
         locations[1][2].setVisited(false);
+        locations[1][2].setLegume(6);
         
         locations[2][3].setScene(scenes[SceneType.legume.ordinal()]);
         locations[2][3].setVisited(false);
-        
+        locations[2][3].setLegume(6);
+                
         locations[4][3].setScene(scenes[SceneType.legume.ordinal()]);
         locations[4][3].setVisited(false);
+        locations[4][3].setLegume(6);
         
         locations[3][4].setScene(scenes[SceneType.legume.ordinal()]);
         locations[3][4].setVisited(false);
-        
+        locations[3][4].setLegume(6);
+                   
         locations[1][0].setScene(scenes[SceneType.legume.ordinal()]);
         locations[1][0].setVisited(false);
-        
+        locations[1][0].setLegume(6);
+                 
         locations[3][0].setScene(scenes[SceneType.legume.ordinal()]);
         locations[3][0].setVisited(false);
-        
+        locations[3][0].setLegume(6);
+                
         locations[4][0].setScene(scenes[SceneType.legume.ordinal()]);
         locations[4][0].setVisited(false);
-        
+        locations[4][0].setLegume(6);
         
         //honey locations
         locations[0][2].setScene(scenes[SceneType.honey.ordinal()]);
         locations[0][2].setVisited(false);
-        
+        locations[0][2].setHoney(2);
+                
         locations[1][4].setScene(scenes[SceneType.honey.ordinal()]);
         locations[1][4].setVisited(false);
-        
+        locations[1][4].setHoney(2);
+                
         locations[2][4].setScene(scenes[SceneType.honey.ordinal()]);
         locations[2][4].setVisited(false);
-        
+        locations[2][4].setHoney(2);
+                
         locations[0][4].setScene(scenes[SceneType.honey.ordinal()]);
         locations[0][4].setVisited(false);
-        
+        locations[0][4].setHoney(2);
         
         
     }
