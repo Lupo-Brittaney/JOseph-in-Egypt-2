@@ -20,7 +20,7 @@ public class Game implements Serializable{
     private Map map;
     private Player player;
     private Pyramid pyramid;
-    private Cart cart;
+    private Cart [] cartSpot;
     private ResourceItem[] resource;
     private String[] actor;
     
@@ -35,12 +35,12 @@ public class Game implements Serializable{
         this.pyramid = pyramid;
     }
 
-    public Cart getCart() {
-        return cart;
+    public Cart[] getCartSpot() {
+        return cartSpot;
     }
 
-    public void setCart(Cart cart) {
-        this.cart = cart;
+    public void setCart(Cart[] cartSpot) {
+        this.cartSpot = cartSpot;
     }
 
     public ResourceItem[] getResource() {

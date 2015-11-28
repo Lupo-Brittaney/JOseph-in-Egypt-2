@@ -11,25 +11,38 @@ import java.io.Serializable;
  *
  * @author Britt
  */
-public enum Actor implements Serializable{
+public class Actor implements Serializable{
     
-    Joseph("He is the dirrector of storage");
+    
     //class instance variables
-    public final String description;
-    public final Point coordinates;
-
-
-    Actor(String description) {
-        this.description = description;
-        coordinates = new Point(1,1);
-    }
+    public String description;
+    public Point coordinates;
+    public String name;
 
     public String getDescription() {
         return description;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public Point getCoordinates() {
         return coordinates;
     }
-  
+
+    public void setCoordinates(Point coordinates) {
+        this.coordinates = coordinates;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    
+    
 }

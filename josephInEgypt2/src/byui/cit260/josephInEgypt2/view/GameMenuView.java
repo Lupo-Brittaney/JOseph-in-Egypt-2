@@ -6,6 +6,7 @@
 package byui.cit260.josephInEgypt2.view;
 
 import byui.cit260.josephInEgypt2.control.GameControl;
+import byui.cit260.josephInEgypt2.model.Cart;
 import byui.cit260.josephInEgypt2.model.Location;
 import byui.cit260.josephInEgypt2.model.ResourceItem;
 import byui.cit260.josephInEgypt2.model.Scene;
@@ -175,7 +176,16 @@ public class GameMenuView extends View {
     }
 
     private void displayCartContents() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Cart[] cartSpot = GameControl.getCartSpotList();
+        
+        System.out.println("List of Cart Contents");
+        System.out.println("Resource Type" + "\t");
+        
+        for (Cart cart :cartSpot){
+            System.out.println(cart.getResourceLoaded()+"\t");
+        }
+        
+        
     }
 
     private void displayTurnCounter() {

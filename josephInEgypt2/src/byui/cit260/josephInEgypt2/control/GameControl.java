@@ -38,13 +38,90 @@ public class GameControl {
         Pyramid pyramid = new Pyramid();
         game.setPyramid(pyramid);//save in game
         
-        Cart cart = new Cart();//create cart
-        game.setCart(cart);//save in game
+        Cart[] cartSpot = GameControl.createCartContents();//create cart
+        game.setCart(cartSpot);//save in game
         
         Map map = MapControl.createMap();//create map and initialize
         game.setMap(map);//save in game
         
         MapControl.moveActorsToStartingLocation(map);// move actors to starting location
+    }
+    
+    public static Cart[] createCartContents() {
+        Cart[] cartSpot = new Cart[10];
+        
+        Cart one = new Cart();
+        one.setAmountLoaded(0);
+        one.setBarrelsLoaded(0);
+        one.setResourceLoaded("none");
+        cartSpot[0] = one;
+        
+        Cart two = new Cart();
+        two.setAmountLoaded(0);
+        two.setBarrelsLoaded(0);
+        two.setResourceLoaded("none");
+        cartSpot[1] = two;
+        
+        Cart three = new Cart();
+        three.setAmountLoaded(0);
+        three.setBarrelsLoaded(0);
+        three.setResourceLoaded("none");
+        cartSpot[2] = three;
+        
+        Cart four = new Cart();
+        four.setAmountLoaded(0);
+        four.setBarrelsLoaded(0);
+        four.setResourceLoaded("none");
+        cartSpot[3] = four;
+        
+        Cart five = new Cart();
+        five.setAmountLoaded(0);
+        five.setBarrelsLoaded(0);
+        five.setResourceLoaded("none");
+        cartSpot[4] = five;
+        
+        Cart six = new Cart();
+        six.setAmountLoaded(0);
+        six.setBarrelsLoaded(0);
+        six.setResourceLoaded("none");
+        cartSpot[5] = six;
+        
+        Cart seven = new Cart();
+        seven.setAmountLoaded(0);
+        seven.setBarrelsLoaded(0);
+        seven.setResourceLoaded("none");
+        cartSpot[6] = seven;
+        
+        Cart eight = new Cart();
+        eight.setAmountLoaded(0);
+        eight.setBarrelsLoaded(0);
+        eight.setResourceLoaded("none");
+        cartSpot[7] = eight;
+        
+        Cart nine = new Cart();
+        nine.setAmountLoaded(0);
+        nine.setBarrelsLoaded(0);
+        nine.setResourceLoaded("none");
+        cartSpot[8] = nine;
+        
+        Cart ten = new Cart();
+        ten.setAmountLoaded(0);
+        ten.setBarrelsLoaded(0);
+        ten.setResourceLoaded("none");
+        cartSpot[9] = ten;
+        
+       
+        
+        
+        return cartSpot;
+        
+    }
+
+    public static Cart[] getCartSpotList() {
+        //Get cart list for the current game
+        Cart[] cartSpotList = JosephInEgypt2.getCurrentGame().getCartSpot();
+                
+        return cartSpotList;
     }
 
            

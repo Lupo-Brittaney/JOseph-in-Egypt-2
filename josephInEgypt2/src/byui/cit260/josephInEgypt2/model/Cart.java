@@ -13,6 +13,7 @@ public class Cart implements Serializable{
 	private int barrelsLoaded;
         private int maxCapacity;
 	private int amountLoaded;
+        private String resourceLoaded;
         
         public Cart() {
             this.maxCapacity = 10;
@@ -45,6 +46,14 @@ public class Cart implements Serializable{
 
     public void setAmountLoaded(int amountLoaded) {
         this.amountLoaded = amountLoaded;
+    }
+
+    public String getResourceLoaded() {
+        return resourceLoaded;
+    }
+
+    public void setResourceLoaded(String resourceLoaded) {
+        this.resourceLoaded = resourceLoaded;
     }
     
     

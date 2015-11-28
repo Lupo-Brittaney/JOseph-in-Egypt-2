@@ -5,9 +5,11 @@
  */
 package byui.cit260.josephInEgypt2.control;
 
+import byui.cit260.josephInEgypt2.model.Actor;
 import byui.cit260.josephInEgypt2.model.Game;
 import byui.cit260.josephInEgypt2.model.Map;
 import byui.cit260.josephInEgypt2.model.Scene;
+import java.awt.Point;
 import josephinegypt2.JosephInEgypt2;
 
 
@@ -19,6 +21,9 @@ public class MapControl {
     
 
     static void moveActorsToStartingLocation(Map map) {
+        
+        
+        
     }
 
     public static Map createMap() {

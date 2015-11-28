@@ -78,8 +78,7 @@ public class MoveMenuView extends View{
     Location[][] locations = JosephInEgypt2.getCurrentGame().getMap().getLocations();
     Location currentLocation = locations[x1][y1];
     locations[x1][y1].setVisited(true);
-    //Actor.setCoordinates(x1, y1);
-                
+    //Actor(coordinates)= new Point (x1, y1);                 
     String description = currentLocation.getScene().getDescription();
     System.out.println(description);   
    
