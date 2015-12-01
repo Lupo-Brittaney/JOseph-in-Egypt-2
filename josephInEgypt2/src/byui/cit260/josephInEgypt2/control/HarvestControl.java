@@ -5,6 +5,8 @@
  */
 package byui.cit260.josephInEgypt2.control;
 
+import byui.cit260.josephInEgypt2.exceptions.HarvestControlException;
+
 /**
  *
  * @author Matt PC
@@ -12,13 +14,13 @@ package byui.cit260.josephInEgypt2.control;
 public class HarvestControl {
     
     //Brittaney's piece
-    public double harvestResource( double unitsDesired, double emptyBarrels, double resourceAvailable){
-
+    public double harvestResource( double unitsDesired, double emptyBarrels, double resourceAvailable)
+                throws HarvestControlException{
 	if (unitsDesired > resourceAvailable || unitsDesired <1){
-	return -1;
+	throw new HarvestControlException("Invalid number of units entered");
         }
 	if (emptyBarrels <1){
-	return -1;
+	throw new HarvestControlException("No empty barrels available");
         }       
 	double barrelsNeeded= unitsDesired /2;
 	double remainingBarrels=emptyBarrels-barrelsNeeded;

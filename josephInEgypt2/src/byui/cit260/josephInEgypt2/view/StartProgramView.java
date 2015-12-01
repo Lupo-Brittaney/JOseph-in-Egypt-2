@@ -34,7 +34,7 @@ public class StartProgramView {
         
     }
 
-    private void displayBanner() {
+    public void displayBanner() {
         System.out.println("\n\n***********************************" );
         
         System.out.println("                                 "

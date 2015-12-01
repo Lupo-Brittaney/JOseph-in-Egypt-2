@@ -7,6 +7,7 @@ package byui.cit260.josephInEgypt2.view;
 
 import byui.cit260.josephInEgypt2.control.HarvestControl;
 import byui.cit260.josephInEgypt2.control.ManufactureControl;
+import byui.cit260.josephInEgypt2.exceptions.HarvestControlException;
 import byui.cit260.josephInEgypt2.model.Location;
 import java.util.Scanner;
 
@@ -91,15 +92,24 @@ public class HarvestMenuView extends View {
         }
         //call manufactureControl to perform calculations
     private double calcHarvest(double noUnits, double noBarrels, double unitsAvailable) {
+        double remainingBarrels = 0.0;
+        try{
         double emptyBarrels= noBarrels;
         double unitsDesired= noUnits;
         double resourceAvailable= unitsAvailable;
         HarvestControl harvestControl = new HarvestControl();
-        double remainingBarrels = harvestControl.harvestResource(unitsDesired, emptyBarrels, resourceAvailable);
+        remainingBarrels = harvestControl.harvestResource(unitsDesired, emptyBarrels, resourceAvailable);
+        
+        }catch (HarvestControlException he){
+            System.out.println(he.getMessage());
+            }
         return remainingBarrels;
+    }
+    
+        
         
     }
-    }
+    
 
 
 
