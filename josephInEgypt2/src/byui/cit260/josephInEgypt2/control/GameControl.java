@@ -6,6 +6,7 @@
 package byui.cit260.josephInEgypt2.control;
 
 import byui.cit260.josephInEgypt2.control.MapControl.SceneType;
+import byui.cit260.josephInEgypt2.model.Actor;
 import byui.cit260.josephInEgypt2.model.Cart;
 import byui.cit260.josephInEgypt2.model.Constants;
 import byui.cit260.josephInEgypt2.model.Game;
@@ -33,6 +34,13 @@ public class GameControl {
         //create inventory list and save in game
         ResourceItem[] resourceList = GameControl.createResourceList();
         game.setResource(resourceList);
+        
+        //create actor
+        Actor actorOne= new Actor();
+        actorOne.setName("Joseph");
+        actorOne.setDescription("describe");
+        actorOne.setCoordinates(2,2);
+        game.setActor(actorOne);
         
         //create pyramid
         Pyramid pyramid = new Pyramid();

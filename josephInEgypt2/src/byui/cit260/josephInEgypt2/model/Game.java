@@ -22,7 +22,7 @@ public class Game implements Serializable{
     private Pyramid pyramid;
     private Cart [] cartSpot;
     private ResourceItem[] resource;
-    private String[] actor;
+    private Actor actor;
     
     public Game() {
     }
@@ -80,11 +80,11 @@ public class Game implements Serializable{
         this.player = player;
     }
 
-    public String[] getActor() {
+    public Actor getActor() {
         return actor;
     }
 
-    public void setActor(String[] actor) {
+    public void setActor(Actor actor) {
         this.actor = actor;
     }
 

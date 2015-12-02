@@ -34,6 +34,11 @@ public class Actor implements Serializable{
     public void setCoordinates(Point coordinates) {
         this.coordinates = coordinates;
     }
+    public void setCoordinates (int x, int y){
+        Point pt = new Point(x,y);
+        this.setCoordinates(pt);
+    }
+    
 
     public String getName() {
         return name;

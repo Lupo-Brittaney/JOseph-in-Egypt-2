@@ -132,27 +132,29 @@ public class GameMenuView extends View {
             System.out.println("--------------------------------");
 
             String grid = i + "|";
+            //calls where the actor is
+            Point actorLocation=JosephInEgypt2.getCurrentGame().getActor().getCoordinates(); 
             for (int j = 0; j < locations[i].length; j++) {
                 Location location = locations[i][j];
 
                 String symbol;
-               
 
-                
-                        
-                        
-               if(location.getVisited() == true) {
+                if (location.getVisited() == true) {
 
                     Scene scene = location.getScene();
                     symbol = scene.getSymbol();
                 } else {
-                    symbol = " ? ";
+                    symbol = "?";
                 }
-                grid += (" " + symbol + " |");
-            
+                if (actorLocation.x == i && actorLocation.y == j) 
+                    grid += (" *" + symbol + "* |");
+                else 
+                    grid += ("  " + symbol + "  |");
+
             }
             System.out.println(grid);
-        }
+        } 
+        
 
     }
 
