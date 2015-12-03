@@ -12,6 +12,12 @@ import byui.cit260.josephInEgypt2.model.Map;
 import byui.cit260.josephInEgypt2.model.Player;
 import byui.cit260.josephInEgypt2.model.Pyramid;
 import byui.cit260.josephInEgypt2.view.StartProgramView;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -22,17 +28,93 @@ public class JosephInEgypt2 {
     private static Game currentGame = null;
     private static Player player = null;
     
+    private static PrintWriter outFile= null;
+    private static BufferedReader inFile= null;
+    
+    private static PrintWriter logFile = null;
+    
     public static void main(String[] args){
+       try{
+        //open character stream files for end user input and output
+        JosephInEgypt2.inFile = new BufferedReader(new InputStreamReader(System.in));
+        JosephInEgypt2.outFile= new PrintWriter(System.out, true);
+        
+        //open log file
+        String filePath = "log.txt";
+        JosephInEgypt2.logFile = new PrintWriter(filePath);
+        
         // create StartProgramView and start the program
         StartProgramView startProgramView = new StartProgramView();
-        try{
+        
         startProgramView.startProgram();
         }catch (Throwable te){
             System.out.println(te.getMessage());
             te.printStackTrace();
-            startProgramView.startProgram();
+            //startProgramView.startProgram();
         }
+        finally {
+           try {
+               if (JosephInEgypt2.inFile != null)
+                   JosephInEgypt2.inFile.close();
+               if (JosephInEgypt2.outFile !=null)
+                   JosephInEgypt2.outFile.close();
+               if (JosephInEgypt2.logFile != null)
+                   JosephInEgypt2.logFile.close();
+               
+           } catch (IOException ex) {
+               System.out.println("Error closing files");
+               return;
+               
+           }
+           
+       } 
+        
+    }
+
+    public static PrintWriter getLogFile() {
+        return logFile;
+    }
+
+    public static void setLogFile(PrintWriter logFile) {
+        JosephInEgypt2.logFile = logFile;
+    }
+
+    public static PrintWriter getOutFile() {
+        return outFile;
+    }
+
+    public static void setOutFile(PrintWriter outFile) {
+        JosephInEgypt2.outFile = outFile;
+    }
+
+    public static BufferedReader getInFile() {
+        return inFile;
+    }
+
+    public static void setInFile(BufferedReader inFile) {
+        JosephInEgypt2.inFile = inFile;
+    }
+
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(Game currentGame) {
+        JosephInEgypt2.currentGame = currentGame;
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static void setPlayer(Player player) {
+        JosephInEgypt2.player = player;
+    }
     
+    
+}
+
+
 
     /**
      * @param args the command line arguments
@@ -110,25 +192,4 @@ public class JosephInEgypt2 {
         System.out.println(locationInfo);
         */
     
-              
-        
-    }
-
-    public static Game getCurrentGame() {
-        return currentGame;
-    }
-
-    public static void setCurrentGame(Game currentGame) {
-        JosephInEgypt2.currentGame = currentGame;
-    }
-
-    public static Player getPlayer() {
-        return player;
-    }
-
-    public static void setPlayer(Player player) {
-        JosephInEgypt2.player = player;
-    }
-    
-    
-}
+         

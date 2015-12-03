@@ -60,12 +60,12 @@ public class HarvestMenuView extends View {
 
         //display message
         if (remainingBarrels >= 1 ){
-            System.out.println("You can harvest " + noUnits +" resources. "
+            this.console.println("You can harvest " + noUnits +" resources. "
                     + "Barrels filled.");
             //remove resources from the origin and into barrel
             return;}
         else 
-            System.out.println("You do not have enough barrels."
+            this.console.println("You do not have enough barrels."
                 + "Resources not harvested");
         return;
                     
@@ -79,11 +79,11 @@ public class HarvestMenuView extends View {
                 
         Scanner keyboard = new Scanner(System.in);
         while (!valid) {
-            System.out.println("Enter number of resources. 1 - 10");
+            this.console.println("Enter number of resources. 1 - 10");
             enteredValue = keyboard.nextDouble();
             
             if (enteredValue < 1 || enteredValue > 10 ){
-            System.out.println ("Number must be between 1 and 10");
+            this.console.println ("Number must be between 1 and 10");
             continue;
             }
             break;

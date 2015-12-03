@@ -54,12 +54,12 @@ public class ConstructMenuView extends View {
         double remainingWood = this.calcBarrels(woodAvailable, noBarrels);
         //display message
         if (remainingWood >= 0 ){
-            System.out.println("You can build " + noBarrels +" barrels. "
+            this.console.println("You can build " + noBarrels +" barrels. "
                     + "Barrels built.");
             //remove wood from inventory and add barrels to inventory
             return;}
         else 
-            System.out.println("You do not have enough wood."
+            this.console.println("You do not have enough wood."
                 + "Barrels not built");
         return;
                     
@@ -73,11 +73,11 @@ public class ConstructMenuView extends View {
                 
         Scanner keyboard = new Scanner(System.in);
         while (!valid) {
-            System.out.println("Enter number of barrels. 1 - 10");
+            this.console.println("Enter number of barrels. 1 - 10");
             enteredValue = keyboard.nextDouble();
             
             if (enteredValue < 1 || enteredValue > 10 ){
-            System.out.println ("Number must be between 1 and 10");
+            this.console.println ("Number must be between 1 and 10");
             continue;
             }
             break;

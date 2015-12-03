@@ -123,10 +123,10 @@ public class GameMenuView extends View {
     public void displayMap() {
         Location[][] locations = JosephInEgypt2.getCurrentGame().getMap().getLocations();
         //Title display
-        System.out.println("\n |******Joseph's Map of Egypt******|");
+        this.console.println("\n |******Joseph's Map of Egypt******|");
 
         //Row and column display
-        System.out.println("\n |  0  |  1  |  2  |  3  |  4  |");
+        this.console.println("\n |  0  |  1  |  2  |  3  |  4  |");
         for (int i = 0; i < locations.length; i++) {
 
             System.out.println("--------------------------------");
@@ -152,7 +152,7 @@ public class GameMenuView extends View {
                     grid += ("  " + symbol + "  |");
 
             }
-            System.out.println(grid);
+            this.console.println(grid);
         } 
         
 
@@ -162,15 +162,15 @@ public class GameMenuView extends View {
         //get the sorted list of inventory items for the current game
         ResourceItem[] resource = GameControl.getSortedResourceList();
 
-        System.out.println("\n List of Stored Itesm");
-        System.out.println("Decsription" + "\t"
+        this.console.println("\n List of Stored Itesm");
+        this.console.println("Decsription" + "\t"
                 + "Required" + "\t"
                 + "In Stock");
 
         //for each inventory item
         for (ResourceItem resourceItem : resource) {
             //display the description, the required amount and amount in stock
-            System.out.println(resourceItem.getDescription() + "\t"
+            this.console.println(resourceItem.getDescription() + "\t"
                     + resourceItem.getRequiredAmount() + "\t"
                     + resourceItem.getQuantityInStock());
         }
@@ -180,11 +180,11 @@ public class GameMenuView extends View {
     private void displayCartContents() {
         Cart[] cartSpot = GameControl.getCartSpotList();
         
-        System.out.println("List of Cart Contents");
-        System.out.println("Resource Type" + "\t");
+        this.console.println("List of Cart Contents");
+        this.console.println("Resource Type" + "\t");
         
         for (Cart cart :cartSpot){
-            System.out.println(cart.getResourceLoaded()+"\t");
+            this.console.println(cart.getResourceLoaded()+"\t");
         }
         
         

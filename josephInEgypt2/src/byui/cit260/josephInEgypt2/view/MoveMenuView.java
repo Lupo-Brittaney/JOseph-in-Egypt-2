@@ -60,13 +60,13 @@ public class MoveMenuView extends View{
         Scanner input = new Scanner(System.in);
 
    // Getting all of the coordinates
-   System.out.print("Enter the X coordinate of the first point: ");
+   this.console.print("Enter the X coordinate of the first point: ");
    int x1 = (int) input.nextDouble();
    if (x1 <0 || x1 > JosephInEgypt2.getCurrentGame().getMap().getNoOfRows()){
        System.out.println("Invalid coordinate entered");
        return;
         }//  and repeat again
-   System.out.print("Enter the Y coordinate of the first point: ");
+   this.console.print("Enter the Y coordinate of the first point: ");
    int y1 = (int) input.nextDouble();
         if (y1 <0 || y1> JosephInEgypt2.getCurrentGame().getMap().getNoOfColumns()){
             System.out.println("Invalid coordinate entered");
@@ -80,7 +80,7 @@ public class MoveMenuView extends View{
     locations[x1][y1].setVisited(true);
     JosephInEgypt2.getCurrentGame().getActor().setCoordinates(x1, y1);
     String description = currentLocation.getScene().getDescription();
-    System.out.println(description);   
+    this.console.println(description);   
    
     }
     

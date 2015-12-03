@@ -5,7 +5,10 @@
  */
 package byui.cit260.josephInEgypt2.view;
 
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import josephinegypt2.JosephInEgypt2;
 
 /**
  *
@@ -14,6 +17,9 @@ import java.util.Scanner;
 public abstract class View implements ViewInterface {
    
     private String promptMessage;
+    
+    protected final BufferedReader keyboard = JosephInEgypt2.getInFile();
+    protected final PrintWriter console = JosephInEgypt2.getOutFile();
     
     public View(String promptMessage) {
         this.promptMessage = promptMessage;
@@ -26,29 +32,32 @@ public abstract class View implements ViewInterface {
         boolean done = false;
         
         do {
-            System.out.println(this.promptMessage); //display prompt message
+            this.console.println(this.promptMessage); //display prompt message
             value = this.getInput(); // get value 
             done = this.doAction(value);
         } while (!done);
        }
     @Override
     public String getInput() {
-        Scanner keyboard = new Scanner(System.in);
+        
         boolean valid = false;
         String value = null;
-        
+        try{
         // while a valid name has not been retrieved
         while (!valid) {
             
             // get value from keyboard
-            value = keyboard.nextLine();
+            value = this.keyboard.readLine();
             value = value.trim();
             
             if (value.length() < 1) {
-                System.out.println("You must enter a value");
+                this.console.println("You must enter a value");
                 continue;
             }
             break;
+        }
+        }catch (Exception e){
+            System.out.println("error reading input:" + e.getMessage());
         }
         return value;    
 }

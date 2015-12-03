@@ -55,17 +55,17 @@ public class HelpMenuView extends View {
     }
 
     private void gameObjective() {
-        System.out.println("\nGame objective is to store 10 barrels of legumes,"
+        this.console.println("\nGame objective is to store 10 barrels of legumes,"
                 + "\n10 barrels of grain and 4 barrels of honey"
                 + "\nwithin the 20 turns allowed.");
     }
 
     private void howToMove() {
-        System.out.println("\nEnter coordinates on the map");
+        this.console.println("\nEnter coordinates on the map");
     }
 
     private void howToHarvest() {
-        System.out.println("\nWhen you go to the location that has"
+        this.console.println("\nWhen you go to the location that has"
                 + "\nharvestable resources you must select"
                 + "\nhow much you want to harvest but you can only"
                 + "\nharvest your chosen amount if you have enough"
@@ -74,7 +74,7 @@ public class HelpMenuView extends View {
     }
 
     private void howToCollect() {
-                System.out.println("\nWhen you go to the location that has"
+                this.console.println("\nWhen you go to the location that has"
                 + "\navailable wood you must select"
                 + "\nhow much you want to collect but you can only"
                 + "\ncollect your chosen amount if you have enough"

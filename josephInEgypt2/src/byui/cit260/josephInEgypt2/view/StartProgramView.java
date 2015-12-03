@@ -7,35 +7,18 @@ package byui.cit260.josephInEgypt2.view;
 
 import byui.cit260.josephInEgypt2.control.ProgramControl;
 import byui.cit260.josephInEgypt2.model.Player;
+import java.io.IOException;
+
 import java.util.Scanner;
+import josephinegypt2.JosephInEgypt2;
 
 /**
  *
  * @author Britt
  */
-public class StartProgramView {
+public class StartProgramView extends View {
     public StartProgramView(){
-        
-    }
-    public void startProgram(){
-    // Display the banner screen
-    this.displayBanner();
-    //Get the players name
-    String playersName = this.getPlayersName();
-    //Create a new player
-    Player player = ProgramControl.createPlayer(playersName);
-    //DISPLAY a customized welcome message
-    this.displayWelcomMessage(player);
-    //DISPLAY the main menu  
-    MainMenuView mainMenu = new MainMenuView();
-    mainMenu.display();
-        
-        
-        
-    }
-
-    public void displayBanner() {
-        System.out.println("\n\n***********************************" );
+        super("\n\n***********************************" );
         
         System.out.println("                                 "
                 + "\n This is the game of Joseph in Egypt  "
@@ -63,30 +46,57 @@ public class StartProgramView {
                 + "\n honey to save the people and win the game.  "
                 + "\n"
                 + "\n*********************************************" );
+    }
+    public void startProgram() {
+        try {
+            // Display the banner screen
+            this.displayBanner();
+            //Get the players name
+            String playersName = this.getPlayersName();
+            //Create a new player
+            Player player = ProgramControl.createPlayer(playersName);
+            //DISPLAY a customized welcome message
+            this.displayWelcomMessage(player);
+            //DISPLAY the main menu  
+            MainMenuView mainMenu = new MainMenuView();
+            mainMenu.display();
+        } catch (Exception e) {
+            System.out.println("Error reading input" + e.getMessage());
+        }
+
+    }
+
+    public void displayBanner() {
+        System.out.println();
         
     }
 
     private String getPlayersName() {
+        
         boolean valid = false; // indicates if the name has been received
         String playersName = null;
-        Scanner keyboard = new Scanner(System.in); // keyboard input stream
         
+        try{
         while(!valid) { //while a valid name has not been retrieved
             //prompt for the player's name
-            System.out.println("Enter the player's name below");
+            this.console.println("Enter the player's name below");
             
             //get the name from the keyboard and trimm of the blanks
-            playersName= keyboard.nextLine();
+            playersName= this.keyboard.readLine();
             playersName = playersName.trim();
             
             //if the name is invalid (less than two characters in length)
             if (playersName.length() < 2){
-                System.out.println("Invalid name - the name must not be blank");
+                this.console.println("Invalid name - the name must not be blank");
                 continue; //  and repeat again
             }
             break; //out of the repitition
+        }    
             
+        }catch (Exception e) {
+            System.out.println("Error reading input" + e.getMessage());
         }
+        
         return playersName; // return the name
     
     
@@ -97,6 +107,11 @@ public class StartProgramView {
         System.out.println("\t Welcome to the game " + player.getName());
         System.out.println("\t We hope you have a lot of fun");
         System.out.println("\n==============================");
+    }
+
+    @Override
+    public boolean doAction(Object obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

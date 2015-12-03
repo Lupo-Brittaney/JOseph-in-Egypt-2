@@ -51,11 +51,11 @@ public class CollectMenuView extends View {
         double remainingSpaces = this.calcSpaces(noUnits, cartSpace);
         //display message
         if (remainingSpaces >= 0 ){
-            System.out.println("You have " + remainingSpaces +" spaces left. ");
+            this.console.println("You have " + remainingSpaces +" spaces left. ");
             return;
         }
         else 
-            System.out.println("You do not have any spaces left.");
+            this.console.println("You do not have any spaces left.");
         return;
         
     }
