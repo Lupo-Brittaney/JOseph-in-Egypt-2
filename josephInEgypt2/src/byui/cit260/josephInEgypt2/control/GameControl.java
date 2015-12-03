@@ -6,6 +6,7 @@
 package byui.cit260.josephInEgypt2.control;
 
 import byui.cit260.josephInEgypt2.control.MapControl.SceneType;
+import byui.cit260.josephInEgypt2.exceptions.GameControlException;
 import byui.cit260.josephInEgypt2.model.Actor;
 import byui.cit260.josephInEgypt2.model.Cart;
 import byui.cit260.josephInEgypt2.model.Constants;
@@ -16,6 +17,12 @@ import byui.cit260.josephInEgypt2.model.Player;
 import byui.cit260.josephInEgypt2.model.Pyramid;
 import byui.cit260.josephInEgypt2.model.ResourceItem;
 import byui.cit260.josephInEgypt2.model.Scene;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 import josephinegypt2.JosephInEgypt2;
 
@@ -130,6 +137,36 @@ public class GameControl {
         Cart[] cartSpotList = JosephInEgypt2.getCurrentGame().getCartSpot();
                 
         return cartSpotList;
+    }
+
+    public static void saveGame(Game game, String filepath) 
+            throws GameControlException {
+        try (FileOutputStream fops = new FileOutputStream(filepath)){
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            
+            output.writeObject(game);//write game object to file
+            
+        }catch (IOException e){
+            throw new GameControlException(e.getMessage());
+        }
+        
+    }
+
+    public static void getSavedGame(String filePath) 
+        throws GameControlException{
+        Game game = null;
+        try(FileInputStream fips = new FileInputStream(filePath)){
+            ObjectInputStream output = new ObjectInputStream(fips);
+            
+            game = (Game) output.readObject();//read game object from file
+        }catch (FileNotFoundException fnfe){
+            throw new GameControlException(fnfe.getMessage());
+        }catch(Exception e){
+            throw new GameControlException(e.getMessage());
+        }
+        //close the outpur file
+        JosephInEgypt2.setCurrentGame(game);//save in JosephInEgypt2
+        
     }
 
            

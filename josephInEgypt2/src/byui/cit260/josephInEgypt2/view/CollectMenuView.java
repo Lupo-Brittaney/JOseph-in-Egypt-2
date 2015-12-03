@@ -38,7 +38,7 @@ public class CollectMenuView extends View {
             case 'E': // exit menu
                 return true;
             default:
-                System.out.println("\n** Invalid selection ** Try again");
+                ErrorView.display(this.getClass().getName(),"** Invalid selection ** Try again");
                 break;      
         }
         return false;
@@ -55,7 +55,7 @@ public class CollectMenuView extends View {
             return;
         }
         else 
-            this.console.println("You do not have any spaces left.");
+            ErrorView.display(this.getClass().getName(),"You do not have enough cart space");
         return;
         
     }

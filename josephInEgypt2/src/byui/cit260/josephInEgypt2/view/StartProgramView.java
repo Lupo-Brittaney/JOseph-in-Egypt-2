@@ -94,7 +94,8 @@ public class StartProgramView extends View {
         }    
             
         }catch (Exception e) {
-            System.out.println("Error reading input" + e.getMessage());
+            ErrorView.display(this.getClass().getName(),"\"Error reading input\" "
+                    +  e.getMessage());
         }
         
         return playersName; // return the name

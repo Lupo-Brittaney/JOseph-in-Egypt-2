@@ -38,7 +38,7 @@ public class ConstructMenuView extends View {
             case 'E': // exit menu
                 return true;
             default:
-                System.out.println("\n** Invalid selection ** Try again");
+                ErrorView.display(this.getClass().getName(),"** Invalid selection ** Try again");
                 break;      
         }
         return false;
@@ -59,7 +59,7 @@ public class ConstructMenuView extends View {
             //remove wood from inventory and add barrels to inventory
             return;}
         else 
-            this.console.println("You do not have enough wood."
+            ErrorView.display(this.getClass().getName(),"You do not have enough wood."
                 + "Barrels not built");
         return;
                     

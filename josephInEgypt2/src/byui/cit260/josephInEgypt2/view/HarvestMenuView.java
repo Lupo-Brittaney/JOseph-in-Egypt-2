@@ -42,7 +42,7 @@ public class HarvestMenuView extends View {
             case 'E': // exit menu
                 return true;
             default:
-                System.out.println("\n** Invalid selection ** Try again");
+                ErrorView.display(this.getClass().getName(),"** Invalid selection ** Try again");
                 break;      
         }
         return false;
@@ -65,7 +65,7 @@ public class HarvestMenuView extends View {
             //remove resources from the origin and into barrel
             return;}
         else 
-            this.console.println("You do not have enough barrels."
+            ErrorView.display(this.getClass().getName(),"You do not have enough barrels."
                 + "Resources not harvested");
         return;
                     

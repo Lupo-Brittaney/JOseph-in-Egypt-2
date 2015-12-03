@@ -44,7 +44,7 @@ public class MoveMenuView extends View{
             case 'E': // exit menu
                 return true;
             default:
-                System.out.println("\n** Invalid selection ** Try again");
+                ErrorView.display(this.getClass().getName(),"** Invalid selection ** Try again");
                 break;      
         }
         return false;
@@ -57,24 +57,34 @@ public class MoveMenuView extends View{
     }
 
     private void enterCoord() {
-        Scanner input = new Scanner(System.in);
-
-   // Getting all of the coordinates
-   this.console.print("Enter the X coordinate of the first point: ");
-   int x1 = (int) input.nextDouble();
-   if (x1 <0 || x1 > JosephInEgypt2.getCurrentGame().getMap().getNoOfRows()){
-       System.out.println("Invalid coordinate entered");
-       return;
-        }//  and repeat again
-   this.console.print("Enter the Y coordinate of the first point: ");
-   int y1 = (int) input.nextDouble();
-        if (y1 <0 || y1> JosephInEgypt2.getCurrentGame().getMap().getNoOfColumns()){
+        
+        int y1 = 0;
+        int x1 = 0;
+        
+        // Getting all of the coordinates
+        this.console.println("Enter the X coordinate of the first point: ");
+        String valueX = this.getInput();
+        this.console.println("Enter the Y coordinate of the first point: ");
+        String valueY = this.getInput();
+        try {
+            x1 = Integer.parseInt(valueX);
+            y1 = Integer.parseInt(valueY);
+        } catch (NumberFormatException nf) {
+            ErrorView.display(this.getClass().getName(), "error reading input:"
+                    + nf.getMessage());
+        }
+        if (x1 < 0 || x1 > JosephInEgypt2.getCurrentGame().getMap().getNoOfRows()) {
             System.out.println("Invalid coordinate entered");
-        return;
-        }    
- 
-    
-           
+            return;
+        }//  and repeat again
+
+        if (y1 < 0 || y1 > JosephInEgypt2.getCurrentGame().getMap().getNoOfColumns()) {
+            System.out.println("Invalid coordinate entered");
+            return;
+        }
+        
+        
+       
     Location[][] locations = JosephInEgypt2.getCurrentGame().getMap().getLocations();
     Location currentLocation = locations[x1][y1];
     locations[x1][y1].setVisited(true);
@@ -82,6 +92,7 @@ public class MoveMenuView extends View{
     String description = currentLocation.getScene().getDescription();
     this.console.println(description);   
    
-    }
     
+    
+    }
 }
