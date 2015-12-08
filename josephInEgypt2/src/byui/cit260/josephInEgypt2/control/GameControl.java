@@ -251,101 +251,125 @@ public class GameControl {
         //grain locations
         locations[1][1].setScene(scenes[SceneType.grain.ordinal()]);
         locations[1][1].setVisited(false);
-        locations [1][1].setGrain(4);
+        locations[1][1].setResourceType("Grain");
+        locations[1][1].setResourceAmount(4);
         
         locations[4][1].setScene(scenes[SceneType.grain.ordinal()]);
         locations[4][1].setVisited(false);
-        locations[4][1].setGrain(6);
+        locations[4][1].setResourceType("Grain");
+        locations[4][1].setResourceAmount(4);
         
         locations[3][2].setScene(scenes[SceneType.grain.ordinal()]);
         locations[3][2].setVisited(false);
-        locations[3][2].setGrain(4);
+        locations[3][2].setResourceType("Grain");
+        locations[3][2].setResourceAmount(4);
         
         locations[4][2].setScene(scenes[SceneType.grain.ordinal()]);
         locations[4][2].setVisited(false);
-        locations[4][2].setGrain(6);
+        locations[4][2].setResourceType("Grain");
+        locations[4][2].setResourceAmount(4);
         
         locations[1][3].setScene(scenes[SceneType.grain.ordinal()]);
         locations[1][3].setVisited(false);
-        locations[1][3].setGrain(4);
+        locations[1][3].setResourceType("Grain");
+        locations[1][3].setResourceAmount(4);
         
         locations[3][3].setScene(scenes[SceneType.grain.ordinal()]);
         locations[3][3].setVisited(false);
-        locations[3][3].setGrain(6);
+       locations[3][3].setResourceType("Grain");
+        locations[3][3].setResourceAmount(4);
         
         locations[0][3].setScene(scenes[SceneType.grain.ordinal()]);
         locations[0][3].setVisited(false);
-        locations[0][3].setGrain(4);
+        locations[0][3].setResourceType("Grain");
+        locations[0][3].setResourceAmount(4);
         
         locations[4][4].setScene(scenes[SceneType.grain.ordinal()]);
         locations[4][4].setVisited(false);
-        locations[4][4].setGrain(4);
+        locations[4][4].setResourceType("Grain");
+        locations[4][4].setResourceAmount(4);
         
         locations[2][0].setScene(scenes[SceneType.grain.ordinal()]);
         locations[2][0].setVisited(false);
-        locations[2][0].setGrain(4);
+        locations[2][0].setResourceType("Grain");
+        locations[2][0].setResourceAmount(4);
         
         locations[0][0].setScene(scenes[SceneType.grain.ordinal()]);
         locations[0][0].setVisited(false);
-        locations[0][0].setGrain(4);
+        locations[0][0].setResourceType("Grain");
+        locations[0][0].setResourceAmount(4);
         
         //legume locations
         locations[2][1].setScene(scenes[SceneType.legume.ordinal()]);
         locations[2][1].setVisited(false);
-        locations[2][1].setLegume(4);
+       locations[2][1].setResourceType("Legume");
+        locations[2][1].setResourceAmount(4);
         
         locations[3][1].setScene(scenes[SceneType.legume.ordinal()]);
         locations[3][1].setVisited(false);
-        locations[3][1].setLegume(6);
+        locations[3][1].setResourceType("Legume");
+        locations[3][1].setResourceAmount(4);
                 
         locations[0][1].setScene(scenes[SceneType.legume.ordinal()]);
         locations[0][1].setVisited(false);
-        locations[0][1].setLegume(6);
+        locations[0][1].setResourceType("Legume");
+        locations[0][1].setResourceAmount(4);
                 
         locations[1][2].setScene(scenes[SceneType.legume.ordinal()]);
         locations[1][2].setVisited(false);
-        locations[1][2].setLegume(6);
+        locations[1][2].setResourceType("Legume");
+        locations[1][2].setResourceAmount(4);
         
         locations[2][3].setScene(scenes[SceneType.legume.ordinal()]);
         locations[2][3].setVisited(false);
-        locations[2][3].setLegume(6);
+        locations[2][3].setResourceType("Legume");
+        locations[2][3].setResourceAmount(4);
                 
         locations[4][3].setScene(scenes[SceneType.legume.ordinal()]);
         locations[4][3].setVisited(false);
-        locations[4][3].setLegume(6);
+        locations[4][3].setResourceType("Legume");
+        locations[4][3].setResourceAmount(4);
         
         locations[3][4].setScene(scenes[SceneType.legume.ordinal()]);
         locations[3][4].setVisited(false);
-        locations[3][4].setLegume(6);
+        locations[3][4].setResourceType("Legume");
+        locations[3][4].setResourceAmount(4);
                    
         locations[1][0].setScene(scenes[SceneType.legume.ordinal()]);
         locations[1][0].setVisited(false);
-        locations[1][0].setLegume(6);
+        locations[1][0].setResourceType("Legume");
+        locations[1][0].setResourceAmount(4);
                  
         locations[3][0].setScene(scenes[SceneType.legume.ordinal()]);
         locations[3][0].setVisited(false);
-        locations[3][0].setLegume(6);
+        locations[3][0].setResourceType("Legume");
+        locations[3][0].setResourceAmount(4);
                 
         locations[4][0].setScene(scenes[SceneType.legume.ordinal()]);
         locations[4][0].setVisited(false);
-        locations[4][0].setLegume(6);
+        locations[4][0].setResourceType("Legume");
+        locations[4][0].setResourceAmount(4);
         
         //honey locations
         locations[0][2].setScene(scenes[SceneType.honey.ordinal()]);
         locations[0][2].setVisited(false);
-        locations[0][2].setHoney(2);
+        locations[0][2].setResourceType("Honey");
+        locations[0][2].setResourceAmount(2);
                 
         locations[1][4].setScene(scenes[SceneType.honey.ordinal()]);
         locations[1][4].setVisited(false);
-        locations[1][4].setHoney(2);
+        locations[1][4].setResourceType("Honey");
+        locations[1][4].setResourceAmount(2);
                 
         locations[2][4].setScene(scenes[SceneType.honey.ordinal()]);
         locations[2][4].setVisited(false);
-        locations[2][4].setHoney(2);
+        locations[2][4].setResourceType("Honey");
+        locations[2][4].setResourceAmount(2);
                 
         locations[0][4].setScene(scenes[SceneType.honey.ordinal()]);
         locations[0][4].setVisited(false);
-        locations[0][4].setHoney(2);
+        locations[0][4].setResourceType("Honey");
+        locations[0][4].setResourceAmount(2);
         
         
     }
