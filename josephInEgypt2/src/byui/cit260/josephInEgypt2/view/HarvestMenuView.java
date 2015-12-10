@@ -75,8 +75,8 @@ public class HarvestMenuView extends View {
         
         
         //get amount of EmptyBarrels
-        //noBarrels = JosephInEgypt2.getCurrentGame().getCartSpot().getEmptyBarrels();
-
+        noBarrels = JosephInEgypt2.getCurrentGame().getEmptySpot();
+        
         //check to make sure player is in a resource location
         if (grain.equals(description) || honey.equals(description) || legume.equals(description)) {
 

@@ -68,21 +68,21 @@ public class MapControl {
         
         Scene grainScene = new Scene();
         grainScene.setDescription(
-                "Grain is here.");
+                "Grain");
         grainScene.setSymbol("G");
         grainScene.setBlocked(false);
         scenes[SceneType.grain.ordinal()]= grainScene;
         
          Scene legumeScene = new Scene();
         legumeScene.setDescription(
-                "Legume is here.");
+                "Legume");
         legumeScene.setSymbol("L");
         legumeScene.setBlocked(false);
         scenes[SceneType.legume.ordinal()]= legumeScene;
         
         Scene honeyScene = new Scene();
         honeyScene.setDescription(
-                "Honey is here.");
+                "Honey");
         honeyScene.setSymbol("H");
         honeyScene.setBlocked(false);
         scenes[SceneType.honey.ordinal()]= honeyScene;

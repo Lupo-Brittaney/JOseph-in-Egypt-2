@@ -318,7 +318,7 @@ public class GameControl {
         //legume locations
         locations[2][1].setScene(scenes[SceneType.legume.ordinal()]);
         locations[2][1].setVisited(false);
-       locations[2][1].setResourceType("Legume");
+        locations[2][1].setResourceType("Legume");
         locations[2][1].setResourceAmount(4);
         
         locations[3][1].setScene(scenes[SceneType.legume.ordinal()]);

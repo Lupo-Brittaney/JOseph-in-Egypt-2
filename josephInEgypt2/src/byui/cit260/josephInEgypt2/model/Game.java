@@ -15,8 +15,8 @@ public class Game implements Serializable{
     
     //class instance variables
     private double totalTime;
-    
-    
+    private int emptySpot;
+    private int emptyBarrels;
     private Map map;
     private Player player;
     private Pyramid pyramid;
@@ -26,6 +26,8 @@ public class Game implements Serializable{
     private MoveCounter moveCounter;
     
     public Game() {
+            this.emptySpot = 10;
+            this.emptyBarrels= 0;
     }
 
     public Pyramid getPyramid() {
@@ -95,6 +97,22 @@ public class Game implements Serializable{
 
     public void setMoveCounter(MoveCounter moveCounter) {
         this.moveCounter = moveCounter;
+    }
+
+    public int getEmptySpot() {
+        return emptySpot;
+    }
+
+    public void setEmptySpot(int emptySpot) {
+        this.emptySpot = emptySpot;
+    }
+
+    public int getEmptyBarrels() {
+        return emptyBarrels;
+    }
+
+    public void setEmptyBarrels(int emptyBarrels) {
+        this.emptyBarrels = emptyBarrels;
     }
 
     

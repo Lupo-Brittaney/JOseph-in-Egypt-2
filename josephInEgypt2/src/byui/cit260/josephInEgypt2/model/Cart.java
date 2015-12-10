@@ -10,16 +10,15 @@ import java.io.Serializable;
 public class Cart implements Serializable{
 
 
-	private int emptyBarrels;
+	
         private int amountLoaded;
         private String resourceLoaded;
-        private int emptySpot;
+        
         private boolean empBarrel;
         private boolean empSpot;
         
         public Cart() {
-            this.emptySpot = 10;
-            this.emptyBarrels= 0;
+
             
             
     }

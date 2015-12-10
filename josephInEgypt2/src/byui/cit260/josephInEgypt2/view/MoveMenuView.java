@@ -84,14 +84,17 @@ public class MoveMenuView extends View{
             return;
         }
         
-        
+      String grain = "Grain";
+        String honey = "Honey";
+        String legume = "Legume";
+        String wood = "Wood";
        
     Location[][] locations = JosephInEgypt2.getCurrentGame().getMap().getLocations();
     Location currentLocation = locations[x1][y1];
     locations[x1][y1].setVisited(true);
     JosephInEgypt2.getCurrentGame().getActor().setCoordinates(x1, y1);
     String description = currentLocation.getScene().getDescription();
-    
+    double quantity = currentLocation.getResourceAmount();
     //get counter, current count
     int count= JosephInEgypt2.getCurrentGame().getMoveCounter().getCounter();
     //decrement counter
@@ -99,10 +102,14 @@ public class MoveMenuView extends View{
     //set count with new decremented count
     JosephInEgypt2.getCurrentGame().getMoveCounter().setCounter(newCount);
     
-    
-    this.console.println(description + "\n You have " + newCount + "of 20 moves left.");   
+    if(description.equals(wood)|| description.equals(honey)|| description.equals(legume)|| description.equals(wood)){
+    this.console.println(description +
+            "\n There are " + quantity + "units of "+ description +
+            "\n You have " + newCount + "of 20 moves left.");   
    
-    
+    }else 
+        this.console.println(description +
+            "\n You have " + newCount + "of 20 moves left.");
     
     }
 }
