@@ -43,7 +43,8 @@ public class MapControl {
         honey,
         grain,
         legume,
-        city;
+        city,
+        wood;
     }
 
     private static Scene[] createScenes() {
@@ -93,6 +94,13 @@ public class MapControl {
         cityScene.setSymbol("C");
         cityScene.setBlocked(false);
         scenes[SceneType.city.ordinal()]= cityScene;
+        
+        Scene woodScene = new Scene();
+        woodScene.setDescription(
+                "Wood");
+        honeyScene.setSymbol("W");
+        honeyScene.setBlocked(false);
+        scenes[SceneType.wood.ordinal()]= honeyScene;
         
         return scenes;
     }

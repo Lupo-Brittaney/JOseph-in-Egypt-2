@@ -9,7 +9,9 @@ import byui.cit260.josephInEgypt2.control.GameControl;
 import byui.cit260.josephInEgypt2.control.GameControl.Item;
 import static byui.cit260.josephInEgypt2.control.GameControl.Item.grain;
 import byui.cit260.josephInEgypt2.model.Cart;
+import byui.cit260.josephInEgypt2.model.Location;
 import byui.cit260.josephInEgypt2.model.ResourceItem;
+import java.awt.Point;
 import static java.time.Clock.system;
 import java.util.Scanner;
 import josephinegypt2.JosephInEgypt2;
@@ -56,9 +58,19 @@ public class UnloadMenuView extends View {
         double cartAmount;
         double storedAmount;
         double newAmount;
+        String description;
+        String city= "City";
         
         Cart[] cartSpot = GameControl.getCartSpotList();
         ResourceItem[] resourceList = GameControl.getSortedResourceList();
+        //get locations 
+        Location[][] locations = JosephInEgypt2.getCurrentGame().getMap().getLocations();
+        //get actor's current location
+        Point currentLocation = JosephInEgypt2.getCurrentGame().getActor().getCoordinates();    
+        //get scene description to check if it is a resource location
+        description = locations[currentLocation.x][currentLocation.y].getResourceType();
+        //check location
+        if (city.equals(description)){
         for(int i=0; i<cartSpot.length; i++){
             if("grain".equals(type)){
                 type= cartSpot[i].getResourceLoaded();
@@ -103,8 +115,10 @@ public class UnloadMenuView extends View {
                     
         
        
-        
         }
+            
+        }else 
+            ErrorView.display(this.getClass().getName(),"** You need to be in the city in order to unload the cart.");
     }
 
     

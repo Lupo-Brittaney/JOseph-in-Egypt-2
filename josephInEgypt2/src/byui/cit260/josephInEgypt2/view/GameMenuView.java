@@ -191,7 +191,9 @@ public class GameMenuView extends View {
     }
 
     private void displayTurnCounter() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //get counter, current count
+    int count= JosephInEgypt2.getCurrentGame().getMoveCounter().getCounter();
+    this.console.println("There are " + count+ " movements left in the game.");
     }
 
 }

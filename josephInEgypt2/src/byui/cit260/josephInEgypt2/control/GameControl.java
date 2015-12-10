@@ -300,37 +300,39 @@ public class GameControl {
         locations[0][3].setResourceType("Grain");
         locations[0][3].setResourceAmount(4);
         
-        locations[4][4].setScene(scenes[SceneType.grain.ordinal()]);
+        //wood locations
+        locations[4][4].setScene(scenes[SceneType.wood.ordinal()]);
         locations[4][4].setVisited(false);
-        locations[4][4].setResourceType("Grain");
+        locations[4][4].setResourceType("Wood");
         locations[4][4].setResourceAmount(4);
         
-        locations[2][0].setScene(scenes[SceneType.grain.ordinal()]);
+        locations[2][0].setScene(scenes[SceneType.wood.ordinal()]);
         locations[2][0].setVisited(false);
-        locations[2][0].setResourceType("Grain");
+        locations[2][0].setResourceType("Wood");
         locations[2][0].setResourceAmount(4);
         
-        locations[0][0].setScene(scenes[SceneType.grain.ordinal()]);
+        locations[0][0].setScene(scenes[SceneType.wood.ordinal()]);
         locations[0][0].setVisited(false);
-        locations[0][0].setResourceType("Grain");
+        locations[0][0].setResourceType("Wood");
         locations[0][0].setResourceAmount(4);
         
-        //legume locations
-        locations[2][1].setScene(scenes[SceneType.legume.ordinal()]);
+        
+        locations[2][1].setScene(scenes[SceneType.wood.ordinal()]);
         locations[2][1].setVisited(false);
-        locations[2][1].setResourceType("Legume");
+        locations[2][1].setResourceType("Wood");
         locations[2][1].setResourceAmount(4);
         
-        locations[3][1].setScene(scenes[SceneType.legume.ordinal()]);
+        locations[3][1].setScene(scenes[SceneType.wood.ordinal()]);
         locations[3][1].setVisited(false);
-        locations[3][1].setResourceType("Legume");
+        locations[3][1].setResourceType("Wood");
         locations[3][1].setResourceAmount(4);
                 
-        locations[0][1].setScene(scenes[SceneType.legume.ordinal()]);
+        locations[0][1].setScene(scenes[SceneType.wood.ordinal()]);
         locations[0][1].setVisited(false);
-        locations[0][1].setResourceType("Legume");
+        locations[0][1].setResourceType("Wood");
         locations[0][1].setResourceAmount(4);
-                
+        
+        //legume locations     
         locations[1][2].setScene(scenes[SceneType.legume.ordinal()]);
         locations[1][2].setVisited(false);
         locations[1][2].setResourceType("Legume");

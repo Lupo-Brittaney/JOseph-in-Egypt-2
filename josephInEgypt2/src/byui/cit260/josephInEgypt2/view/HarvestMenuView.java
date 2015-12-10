@@ -27,7 +27,8 @@ public class HarvestMenuView extends View {
             + "\n| Harvest Resources                            |"
             + "\n----------------------------------------------"
             + "\n How many resources would"
-            + "\nyou like to harvest?"
+            + "\n you like to harvest?"
+            + "\n *Harvest in increments of 2*"
             + "\nN - To enter number of resources"
             + "\nE - Exit"
             + "\n----------------------------------------------");
@@ -56,7 +57,7 @@ public class HarvestMenuView extends View {
 
         //get brrels desired from user
         double noUnits = this.getUnitsNumber();
-        double noBarrels = 5;  //get later?
+        double noBarrels = 0;  
         double unitsAvailable = 0;
         String description;
         int unitsLeft;
@@ -80,7 +81,7 @@ public class HarvestMenuView extends View {
         //check to make sure player is in a resource location
         if (grain.equals(description) || honey.equals(description) || legume.equals(description)) {
 
-            //use manufactureControl to calculate if barrels can be built
+            //use harvestControl to calculate if barrels can be built
             double remainingBarrels = this.calcHarvest(noUnits, noBarrels, unitsAvailable);
 
             //display message

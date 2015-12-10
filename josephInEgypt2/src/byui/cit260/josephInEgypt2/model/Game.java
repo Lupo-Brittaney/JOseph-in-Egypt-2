@@ -15,8 +15,8 @@ public class Game implements Serializable{
     
     //class instance variables
     private double totalTime;
-    private int emptySpot;
-    private int emptyBarrels;
+    private int emptySpot;//represents empty spots on the cart
+    private int emptyBarrels;//represents barrels on the cart
     private Map map;
     private Player player;
     private Pyramid pyramid;
@@ -24,6 +24,7 @@ public class Game implements Serializable{
     private ResourceItem[] resource;
     private Actor actor;
     private MoveCounter moveCounter;
+    private int builtBarrels;
     
     public Game() {
             this.emptySpot = 10;
@@ -113,6 +114,14 @@ public class Game implements Serializable{
 
     public void setEmptyBarrels(int emptyBarrels) {
         this.emptyBarrels = emptyBarrels;
+    }
+
+    public int getBuiltBarrels() {
+        return builtBarrels;
+    }
+
+    public void setBuiltBarrels(int builtBarrels) {
+        this.builtBarrels = builtBarrels;
     }
 
     
