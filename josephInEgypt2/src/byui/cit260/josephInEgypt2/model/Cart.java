@@ -42,21 +42,7 @@ public class Cart implements Serializable{
         this.resourceLoaded = resourceLoaded;
     }
 
-    public int getEmptyBarrels() {
-        return emptyBarrels;
-    }
-
-    public void setEmptyBarrels(int emptyBarrels) {
-        this.emptyBarrels = emptyBarrels;
-    }
-
-    public int getEmptySpot() {
-        return emptySpot;
-    }
-
-    public void setEmptySpot(int emptySpot) {
-        this.emptySpot = emptySpot;
-    }
+  
 
     public boolean isEmpBarrel() {
         return empBarrel;
