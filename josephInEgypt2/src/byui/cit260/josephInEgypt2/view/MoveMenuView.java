@@ -8,6 +8,7 @@ package byui.cit260.josephInEgypt2.view;
 import byui.cit260.josephInEgypt2.control.MapControl;
 import byui.cit260.josephInEgypt2.model.Actor;
 import byui.cit260.josephInEgypt2.model.Location;
+import byui.cit260.josephInEgypt2.model.MoveCounter;
 import java.awt.Point;
 import java.util.Scanner;
 import josephinegypt2.JosephInEgypt2;
@@ -90,7 +91,16 @@ public class MoveMenuView extends View{
     locations[x1][y1].setVisited(true);
     JosephInEgypt2.getCurrentGame().getActor().setCoordinates(x1, y1);
     String description = currentLocation.getScene().getDescription();
-    this.console.println(description);   
+    
+    //get counter, current count
+    int count= JosephInEgypt2.getCurrentGame().getMoveCounter().getCounter();
+    //decrement counter
+    int newCount= count--;
+    //set count with new decremented count
+    JosephInEgypt2.getCurrentGame().getMoveCounter().setCounter(newCount);
+    
+    
+    this.console.println(description + "\n You have " + newCount + "of 20 moves left.");   
    
     
     

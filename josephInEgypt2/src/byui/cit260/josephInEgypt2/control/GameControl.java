@@ -13,10 +13,12 @@ import byui.cit260.josephInEgypt2.model.Constants;
 import byui.cit260.josephInEgypt2.model.Game;
 import byui.cit260.josephInEgypt2.model.Location;
 import byui.cit260.josephInEgypt2.model.Map;
+import byui.cit260.josephInEgypt2.model.MoveCounter;
 import byui.cit260.josephInEgypt2.model.Player;
 import byui.cit260.josephInEgypt2.model.Pyramid;
 import byui.cit260.josephInEgypt2.model.ResourceItem;
 import byui.cit260.josephInEgypt2.model.Scene;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -52,12 +54,16 @@ public class GameControl {
         //create pyramid
         Pyramid pyramid = new Pyramid();
         game.setPyramid(pyramid);//save in game
+        
         //create a cart
         Cart[] cartSpot = GameControl.createCartContents();//create cart
         game.setCart(cartSpot);//save in game
         //create a map
         Map map = MapControl.createMap();//create map and initialize
         game.setMap(map);//save in game
+        //create counter
+        MoveCounter moveCounter= new MoveCounter();
+        game.setMoveCounter(moveCounter);
         
         MapControl.moveActorsToStartingLocation(map);// move actors to starting location
     }

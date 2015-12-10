@@ -6,7 +6,10 @@
 package byui.cit260.josephInEgypt2.view;
 
 import byui.cit260.josephInEgypt2.control.GameControl;
+import byui.cit260.josephInEgypt2.control.GameControl.Item;
+import static byui.cit260.josephInEgypt2.control.GameControl.Item.grain;
 import byui.cit260.josephInEgypt2.model.Cart;
+import byui.cit260.josephInEgypt2.model.ResourceItem;
 import static java.time.Clock.system;
 import java.util.Scanner;
 import josephinegypt2.JosephInEgypt2;
@@ -47,29 +50,64 @@ public class UnloadMenuView extends View {
         return false;
         }
 
-    private void unloadCart() {
-        //obtain contents of the cart
-        this.cartContents();
-        //add items from cart to amount stored
-        this.addStored();
-        //empty contents- set cart to empty
-        this.emptyCart();
+    private void unloadCart()  {
+        String spot;
+        String type = null;
+        double cartAmount;
+        double storedAmount;
+        double newAmount;
         
+        Cart[] cartSpot = GameControl.getCartSpotList();
+        ResourceItem[] resourceList = GameControl.getSortedResourceList();
+        for(int i=0; i<cartSpot.length; i++){
+            if("grain".equals(type)){
+                type= cartSpot[i].getResourceLoaded();
+                cartAmount = cartSpot[i].getAmountLoaded();
+                storedAmount= resourceList[Item.grain.ordinal()].getQuantityInStock();
+                newAmount= cartAmount + storedAmount;
+                cartSpot[i].setResourceLoaded("none");
+                cartSpot[i].setAmountLoaded(0);
+                cartSpot[i].setEmpBarrel(false);
+                cartSpot[i].setEmpSpot(true);
+            }else if ("legume".equals(type)){
+                type= cartSpot[i].getResourceLoaded();
+                cartAmount = cartSpot[i].getAmountLoaded();
+                storedAmount= resourceList[Item.legume.ordinal()].getQuantityInStock();
+                newAmount= cartAmount + storedAmount;
+                cartSpot[i].setResourceLoaded("none");
+                cartSpot[i].setAmountLoaded(0);
+                cartSpot[i].setEmpBarrel(false);
+                cartSpot[i].setEmpSpot(true);
+                
+                
+            }else if("honey".equals(type)){
+                type= cartSpot[i].getResourceLoaded();
+                cartAmount = cartSpot[i].getAmountLoaded();
+                storedAmount= resourceList[Item.honey.ordinal()].getQuantityInStock();
+                newAmount= cartAmount + storedAmount;
+                cartSpot[i].setResourceLoaded("none");
+                cartSpot[i].setAmountLoaded(0);
+                cartSpot[i].setEmpBarrel(false);
+                cartSpot[i].setEmpSpot(true);
+            }else if( "wood".equals(type)){
+                type= cartSpot[i].getResourceLoaded();
+                cartAmount = cartSpot[i].getAmountLoaded();
+                storedAmount= resourceList[Item.wood.ordinal()].getQuantityInStock();
+                newAmount= cartAmount + storedAmount;
+                cartSpot[i].setResourceLoaded("none");
+                cartSpot[i].setAmountLoaded(0);
+                cartSpot[i].setEmpBarrel(false);
+                cartSpot[i].setEmpSpot(true);
+            }else 
+                ErrorView.display(this.getClass().getName(),"** Error unloading cart");
+                    
+        
+       
+        
+        }
     }
 
-           
-
-    private void cartContents() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void emptyCart() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void addStored() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
     
     
 }

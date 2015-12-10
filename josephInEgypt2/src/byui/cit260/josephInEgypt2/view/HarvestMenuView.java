@@ -5,9 +5,11 @@
  */
 package byui.cit260.josephInEgypt2.view;
 
+import byui.cit260.josephInEgypt2.control.GameControl;
 import byui.cit260.josephInEgypt2.control.HarvestControl;
 import byui.cit260.josephInEgypt2.control.ManufactureControl;
 import byui.cit260.josephInEgypt2.exceptions.HarvestControlException;
+import byui.cit260.josephInEgypt2.model.Cart;
 import byui.cit260.josephInEgypt2.model.Location;
 import java.awt.Point;
 import java.util.Scanner;
@@ -54,7 +56,7 @@ public class HarvestMenuView extends View {
 
         //get brrels desired from user
         double noUnits = this.getUnitsNumber();
-        double noBarrels = 0;  //get later?
+        double noBarrels = 5;  //get later?
         double unitsAvailable = 0;
         String description;
         int unitsLeft;
@@ -70,6 +72,10 @@ public class HarvestMenuView extends View {
         unitsAvailable = locations[currentLocation.x][currentLocation.y].getResourceAmount();
         //get scene description to check if it is a resource location
         description = locations[currentLocation.x][currentLocation.y].getResourceType();
+        
+        
+        //get amount of EmptyBarrels
+        //noBarrels = JosephInEgypt2.getCurrentGame().getCartSpot().getEmptyBarrels();
 
         //check to make sure player is in a resource location
         if (grain.equals(description) || honey.equals(description) || legume.equals(description)) {

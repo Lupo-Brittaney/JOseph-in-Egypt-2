@@ -23,6 +23,7 @@ public class Game implements Serializable{
     private Cart [] cartSpot;
     private ResourceItem[] resource;
     private Actor actor;
+    private MoveCounter moveCounter;
     
     public Game() {
     }
@@ -86,6 +87,14 @@ public class Game implements Serializable{
 
     public void setActor(Actor actor) {
         this.actor = actor;
+    }
+
+    public MoveCounter getMoveCounter() {
+        return moveCounter;
+    }
+
+    public void setMoveCounter(MoveCounter moveCounter) {
+        this.moveCounter = moveCounter;
     }
 
     
