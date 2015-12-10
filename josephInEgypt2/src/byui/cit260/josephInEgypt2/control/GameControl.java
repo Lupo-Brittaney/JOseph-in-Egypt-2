@@ -52,10 +52,10 @@ public class GameControl {
         //create pyramid
         Pyramid pyramid = new Pyramid();
         game.setPyramid(pyramid);//save in game
-        
+        //create a cart
         Cart[] cartSpot = GameControl.createCartContents();//create cart
         game.setCart(cartSpot);//save in game
-        
+        //create a map
         Map map = MapControl.createMap();//create map and initialize
         game.setMap(map);//save in game
         
@@ -67,61 +67,71 @@ public class GameControl {
         
         Cart one = new Cart();
         one.setAmountLoaded(0);
-        one.setBarrelsLoaded(0);
+        one.setEmpBarrel(false);
+        one.setEmpSpot(true);
         one.setResourceLoaded("none");
         cartSpot[0] = one;
         
         Cart two = new Cart();
         two.setAmountLoaded(0);
-        two.setBarrelsLoaded(0);
+        two.setEmpBarrel(false);
+        two.setEmpSpot(true);
         two.setResourceLoaded("none");
         cartSpot[1] = two;
         
         Cart three = new Cart();
         three.setAmountLoaded(0);
-        three.setBarrelsLoaded(0);
+        three.setEmpBarrel(false);
+        three.setEmpSpot(true);
         three.setResourceLoaded("none");
         cartSpot[2] = three;
         
         Cart four = new Cart();
         four.setAmountLoaded(0);
-        four.setBarrelsLoaded(0);
+        four.setEmpBarrel(false);
+        four.setEmpSpot(true);
         four.setResourceLoaded("none");
         cartSpot[3] = four;
         
         Cart five = new Cart();
         five.setAmountLoaded(0);
-        five.setBarrelsLoaded(0);
+        five.setEmpBarrel(false);
+        five.setEmpSpot(true);
         five.setResourceLoaded("none");
         cartSpot[4] = five;
         
         Cart six = new Cart();
         six.setAmountLoaded(0);
-        six.setBarrelsLoaded(0);
+        six.setEmpBarrel(false);
+        six.setEmpSpot(true);
         six.setResourceLoaded("none");
         cartSpot[5] = six;
         
         Cart seven = new Cart();
         seven.setAmountLoaded(0);
-        seven.setBarrelsLoaded(0);
+        seven.setEmpBarrel(false);
+        seven.setEmpSpot(true);
         seven.setResourceLoaded("none");
         cartSpot[6] = seven;
         
         Cart eight = new Cart();
         eight.setAmountLoaded(0);
-        eight.setBarrelsLoaded(0);
+        eight.setEmpBarrel(false);
+        eight.setEmpSpot(true);
         eight.setResourceLoaded("none");
         cartSpot[7] = eight;
         
         Cart nine = new Cart();
         nine.setAmountLoaded(0);
-        nine.setBarrelsLoaded(0);
+        nine.setEmpBarrel(false);
+        nine.setEmpSpot(true);
         nine.setResourceLoaded("none");
         cartSpot[8] = nine;
         
         Cart ten = new Cart();
         ten.setAmountLoaded(0);
-        ten.setBarrelsLoaded(0);
+        ten.setEmpBarrel(false);
+        ten.setEmpSpot(true);
         ten.setResourceLoaded("none");
         cartSpot[9] = ten;
         

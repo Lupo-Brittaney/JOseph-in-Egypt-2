@@ -10,35 +10,22 @@ import java.io.Serializable;
 public class Cart implements Serializable{
 
 
-	private int barrelsLoaded;
-        private int maxCapacity;
-	private int amountLoaded;
+	private int emptyBarrels;
+        private int amountLoaded;
         private String resourceLoaded;
+        private int emptySpot;
+        private boolean empBarrel;
+        private boolean empSpot;
         
         public Cart() {
-            this.maxCapacity = 10;
-            this.amountLoaded = 0;
-            this.barrelsLoaded= 0;
+            this.emptySpot = 10;
+            this.emptyBarrels= 0;
             
             
     }
 
 
-    public int getBarrelsLoaded() {
-        return barrelsLoaded;
-    }
-
-    public void setBarrelsLoaded(int barrelsLoaded) {
-        this.barrelsLoaded = barrelsLoaded;
-    }
-
-    public int getMaxCapacity() {
-        return maxCapacity;
-    }
-
-    public void setMaxCapacity(int maxCapacity) {
-        this.maxCapacity = maxCapacity;
-    }
+    
 
     public int getAmountLoaded() {
         return amountLoaded;
@@ -55,6 +42,40 @@ public class Cart implements Serializable{
     public void setResourceLoaded(String resourceLoaded) {
         this.resourceLoaded = resourceLoaded;
     }
+
+    public int getEmptyBarrels() {
+        return emptyBarrels;
+    }
+
+    public void setEmptyBarrels(int emptyBarrels) {
+        this.emptyBarrels = emptyBarrels;
+    }
+
+    public int getEmptySpot() {
+        return emptySpot;
+    }
+
+    public void setEmptySpot(int emptySpot) {
+        this.emptySpot = emptySpot;
+    }
+
+    public boolean isEmpBarrel() {
+        return empBarrel;
+    }
+
+    public void setEmpBarrel(boolean empBarrel) {
+        this.empBarrel = empBarrel;
+    }
+
+    public boolean isEmpSpot() {
+        return empSpot;
+    }
+
+    public void setEmpSpot(boolean empSpot) {
+        this.empSpot = empSpot;
+    }
+
+    
     
     
 }
