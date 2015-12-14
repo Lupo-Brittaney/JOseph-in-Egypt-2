@@ -98,18 +98,18 @@ public class MoveMenuView extends View{
     //get counter, current count
     int count= JosephInEgypt2.getCurrentGame().getMoveCounter().getCounter();
     //decrement counter
-    int newCount= count--;
+    int newCount= count-1;
     //set count with new decremented count
     JosephInEgypt2.getCurrentGame().getMoveCounter().setCounter(newCount);
     
-    if(description.equals(wood)|| description.equals(honey)|| description.equals(legume)|| description.equals(wood)){
+    if(wood.equals(description)|| honey.equals(description)|| legume.equals(description)|| grain.equals(description)){
     this.console.println(description +
-            "\n There are " + quantity + "units of "+ description +
-            "\n You have " + newCount + "of 20 moves left.");   
+            "\n There are " + quantity + " units of "+ description + " here."+
+            "\n You have " + newCount + " of 20 moves left.");   
    
     }else 
         this.console.println(description +
-            "\n You have " + newCount + "of 20 moves left.");
+            "\n You have " + newCount + " of 20 moves left.");
     
     }
 }
